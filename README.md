@@ -153,6 +153,11 @@ Every model runs **locally via Ollama** — no API keys, no cloud, no subscripti
 
 The main hub. Everything starts here.
 
+<p align="center">
+  <img src="screenshots/dashboard-top.png" alt="NeuralForge Dashboard — metrics, services, monitoring" width="100%">
+  <img src="screenshots/dashboard-modules.png" alt="NeuralForge — 11 AI services with VRAM management" width="100%">
+</p>
+
 **Live Metrics:**
 - GPU VRAM usage with free memory indicator
 - GPU temperature and power draw
@@ -189,6 +194,10 @@ Drop it in `modules/` → restart panel → it appears. That's it.
 ## AI Agents
 
 A full multi-agent framework built into the panel.
+
+<p align="center">
+  <img src="screenshots/agents.png" alt="NeuralForge Agent Constructor — 13 roles, team presets, tools" width="100%">
+</p>
 
 **13 Role Presets:**
 
@@ -270,6 +279,10 @@ That's **180x faster** indexing with ONNX.
 ## LoRA Fine-Tuning
 
 Train custom model adapters directly from the panel UI.
+
+<p align="center">
+  <img src="screenshots/lora.png" alt="NeuralForge LoRA — fine-tune LLMs with Unsloth" width="100%">
+</p>
 
 **16 Base Models Ready to Fine-Tune:**
 
@@ -371,6 +384,10 @@ Send a photo to your account → the bot describes it through the vision model �
 ## SMM AI Department
 
 Fully automated social media management system — from trend discovery to publishing across 7 platforms.
+
+<p align="center">
+  <img src="screenshots/smm.png" alt="NeuralForge SMM — trend scout, 7 platforms, AI post generation" width="100%">
+</p>
 
 **Complete Workflow:**
 ```
