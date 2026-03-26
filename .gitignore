@@ -7,6 +7,15 @@ __pycache__/
 telegram_session.session
 telegram_config.json
 telegram_sessions/
+smm_profiles/
+smm_data.db
+smm_data.db-shm
+smm_data.db-wal
+
+# SMM generated content (large files)
+smm_images/
+smm_trends/
+smm_queue/
 
 # Temp & cache
 *.log

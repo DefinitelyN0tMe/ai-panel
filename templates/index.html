@@ -127,6 +127,78 @@ body { font-family: 'Segoe UI',system-ui,sans-serif; background:var(--bg); color
 .btn-clean { background:rgba(248,113,113,0.15); color:var(--red); border:1px solid rgba(248,113,113,0.3); padding:3px 10px; border-radius:6px; font-size:11px; font-weight:600; cursor:pointer; transition:all 0.2s; }
 .btn-clean:hover { background:var(--red); color:#fff; }
 .btn-clean:disabled { opacity:0.4; cursor:not-allowed; }
+
+/* SMM */
+.smm-wizard-overlay { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:1000; display:flex; align-items:center; justify-content:center; }
+.smm-wizard { background:var(--bg2); border:1px solid var(--bg3); border-radius:16px; width:600px; max-height:80vh; overflow-y:auto; padding:24px; }
+.smm-wizard h3 { font-size:16px; margin-bottom:16px; color:var(--accent); }
+.smm-wizard-step { display:none; }
+.smm-wizard-step.active { display:block; }
+.smm-wizard-nav { display:flex; justify-content:space-between; margin-top:20px; padding-top:16px; border-top:1px solid var(--bg3); }
+.smm-wizard-dots { display:flex; gap:8px; justify-content:center; margin-bottom:16px; }
+.smm-wizard-dot { width:10px; height:10px; border-radius:50%; background:var(--bg3); }
+.smm-wizard-dot.active { background:var(--accent); }
+.smm-wizard-dot.done { background:var(--green); }
+.smm-field { margin-bottom:12px; }
+.smm-field label { display:block; color:var(--gray); font-size:11px; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.5px; }
+.smm-platform-toggle { display:flex; align-items:center; gap:10px; padding:8px 12px; background:var(--bg); border:1px solid var(--bg3); border-radius:8px; margin-bottom:6px; cursor:pointer; transition:all 0.2s; }
+.smm-platform-toggle.enabled { border-color:var(--accent); background:rgba(56,189,248,0.05); }
+.smm-platform-toggle input[type=checkbox] { width:16px; height:16px; cursor:pointer; }
+.smm-platform-extra { display:none; margin-left:26px; margin-top:4px; margin-bottom:8px; }
+.smm-platform-toggle.enabled + .smm-platform-extra { display:block; }
+.smm-trend-card { background:var(--bg); border:1px solid var(--bg3); border-radius:10px; padding:14px; margin-bottom:8px; transition:border-color 0.2s; }
+.smm-trend-card:hover { border-color:var(--accent); }
+.smm-score { font-size:22px; font-weight:700; min-width:44px; text-align:center; }
+.smm-score.high { color:var(--green); }
+.smm-score.mid { color:var(--yellow); }
+.smm-score.low { color:var(--gray2); }
+.smm-virality { font-size:10px; padding:2px 8px; border-radius:6px; font-weight:600; text-transform:uppercase; }
+.smm-virality.high { background:rgba(74,222,128,0.15); color:var(--green); }
+.smm-virality.medium { background:rgba(250,204,21,0.15); color:var(--yellow); }
+.smm-virality.low { background:rgba(148,163,184,0.15); color:var(--gray); }
+.smm-profile-card { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-bottom:12px; }
+.smm-profile-stat { background:var(--bg); border-radius:8px; padding:10px; }
+.smm-profile-stat .label { color:var(--gray); font-size:10px; text-transform:uppercase; margin-bottom:4px; }
+.smm-profile-stat .value { font-size:13px; font-weight:600; }
+.smm-sched-row { display:flex; gap:6px; align-items:center; margin-bottom:6px; }
+.smm-sched-row label { min-width:80px; color:var(--gray); font-size:11px; }
+.smm-day-btn { width:28px; height:24px; border:1px solid var(--bg3); border-radius:4px; background:var(--bg); color:var(--gray2); font-size:10px; cursor:pointer; transition:all 0.2s; }
+.smm-day-btn.active { background:var(--accent); color:#000; border-color:var(--accent); }
+.smm-post-card { background:var(--bg); border:1px solid var(--bg3); border-radius:10px; padding:12px; }
+.smm-post-card .platform-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+.smm-post-card .platform-name { font-size:13px; font-weight:600; }
+.smm-post-card .char-count { font-size:10px; color:var(--gray2); }
+.smm-post-card textarea { width:100%; min-height:120px; background:var(--bg2); border:1px solid var(--bg3); border-radius:6px; color:var(--white); font-size:12px; padding:8px; resize:vertical; font-family:inherit; }
+.smm-post-card textarea:focus { border-color:var(--accent); outline:none; }
+.smm-post-card .copy-btn { background:var(--bg3); color:var(--accent); border:none; padding:3px 8px; border-radius:4px; font-size:10px; cursor:pointer; }
+.smm-post-card .copy-btn:hover { background:var(--accent); color:#000; }
+.smm-queue-item { background:var(--bg); border:1px solid var(--bg3); border-radius:10px; padding:12px; margin-bottom:8px; transition:border-color 0.2s; }
+.smm-queue-item:hover { border-color:var(--accent); }
+.smm-queue-status { font-size:10px; padding:2px 8px; border-radius:6px; font-weight:600; text-transform:uppercase; }
+.smm-queue-status.draft { background:rgba(148,163,184,0.15); color:var(--gray); }
+.smm-queue-status.approved { background:rgba(74,222,128,0.15); color:var(--green); }
+.smm-queue-status.scheduled { background:rgba(56,189,248,0.15); color:var(--accent); }
+.smm-queue-status.published { background:rgba(168,85,247,0.15); color:var(--accent2); }
+.smm-queue-status.partial { background:rgba(251,146,60,0.15); color:var(--orange); }
+.smm-platform-check { display:flex; align-items:center; gap:4px; cursor:pointer; font-size:11px; color:var(--gray2); }
+.smm-platform-check input { width:14px; height:14px; cursor:pointer; }
+.smm-platform-check.checked { color:var(--accent); }
+.smm-gh-card { background:var(--bg); border:1px solid var(--bg3); border-radius:10px; padding:12px; margin-bottom:8px; transition:border-color 0.2s; }
+.smm-gh-card:hover { border-color:var(--accent); }
+.smm-gh-stars { font-size:18px; font-weight:700; color:var(--yellow); min-width:60px; text-align:right; }
+.smm-gh-velocity { font-size:10px; padding:2px 6px; border-radius:4px; font-weight:600; }
+.smm-gh-velocity.hot { background:rgba(248,113,113,0.15); color:var(--red); }
+.smm-gh-velocity.warm { background:rgba(250,204,21,0.15); color:var(--yellow); }
+.smm-gh-velocity.cool { background:rgba(148,163,184,0.15); color:var(--gray); }
+.smm-gh-topic { display:inline-block; font-size:9px; padding:1px 6px; border-radius:4px; background:var(--bg3); color:var(--gray); margin:1px; }
+.smm-cal-day { background:var(--bg); border:1px solid var(--bg3); border-radius:8px; min-height:80px; padding:6px; font-size:11px; }
+.smm-cal-day.today { border-color:var(--accent); }
+.smm-cal-day .day-num { font-weight:600; color:var(--gray); margin-bottom:4px; }
+.smm-cal-day .day-name { font-size:9px; color:var(--gray2); text-transform:uppercase; }
+.smm-cal-post { background:var(--bg2); border-radius:4px; padding:3px 5px; margin-top:3px; font-size:10px; cursor:pointer; }
+.smm-cal-post.published { border-left:2px solid var(--green); }
+.smm-cal-post.approved { border-left:2px solid var(--yellow); }
+.smm-cal-post.draft { border-left:2px solid var(--gray2); }
 </style>
 </head>
 <body>
@@ -140,6 +212,7 @@ body { font-family: 'Segoe UI',system-ui,sans-serif; background:var(--bg); color
       <button class="tab-btn" onclick="switchTab('rag')">RAG</button>
       <button class="tab-btn" onclick="switchTab('telegram')">Telegram</button>
       <button class="tab-btn" onclick="switchTab('finetune')">LoRA</button>
+      <button class="tab-btn" onclick="switchTab('smm')">SMM</button>
     </div>
     <div class="meta" id="uptime">TR PRO 5955WX • RTX 3090 • 128GB</div>
   </div>
@@ -148,6 +221,17 @@ body { font-family: 'Segoe UI',system-ui,sans-serif; background:var(--bg); color
 <div class="main" id="dashboard-tab">
   <!-- Health Alerts -->
   <div id="health-alerts" style="margin-bottom:12px;"></div>
+
+  <!-- SMM Widget -->
+  <div class="agent-card" style="margin-bottom:16px;padding:12px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <span style="font-size:14px;font-weight:600;">📱 SMM Neural Overlord</span>
+      <button class="btn btn-open" style="font-size:10px;padding:2px 8px;" onclick="switchTab('smm');event.target.closest('.tab-nav')?.querySelector('[onclick*=smm]')?.click()">Открыть →</button>
+    </div>
+    <div id="dashboard-smm-widget" style="display:flex;gap:16px;margin-top:8px;flex-wrap:wrap;font-size:12px;">
+      <span style="color:var(--gray2);">Загрузка...</span>
+    </div>
+  </div>
 
   <!-- Quick Actions -->
   <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;">
@@ -435,11 +519,15 @@ body { font-family: 'Segoe UI',system-ui,sans-serif; background:var(--bg); color
         <div>
           <label style="color:var(--gray);font-size:11px;display:block;margin-bottom:4px;">Модель для ответа</label>
           <select id="rag-model" class="agent-input" style="padding:8px 12px;">
-            <option value="nemotron-3-nano:30b">Nemotron 3 Nano 30B (NVIDIA, быстрейший)</option>
-            <option value="qwen3.5:35b-a3b">Qwen 3.5 35B-A3B (быстрый)</option>
+            <option value="qwen3.5:27b">Qwen 3.5 27B (основная)</option>
+            <option value="qwen3.5:35b-a3b">Qwen 3.5 35B-A3B (MoE, быстрый)</option>
+            <option value="qwen3.5:9b">Qwen 3.5 9B (лёгкий)</option>
+            <option value="gemma3:27b">Gemma 3 27B (140 языков)</option>
+            <option value="nemotron-3-nano:30b">Nemotron 30B (1M контекст)</option>
             <option value="command-r:35b">Command R 35B (RAG-специалист)</option>
-            <option value="deepseek-r1:32b">DeepSeek-R1 32B (рассуждения)</option>
-            <option value="qwen3.5:27b">Qwen 3.5 27B (vision, анализ)</option>
+            <option value="deepseek-r1:14b">DeepSeek-R1 14B (reasoning)</option>
+            <option value="deepseek-r1:32b">DeepSeek-R1 32B (reasoning+)</option>
+            <option value="phi4-reasoning:14b">Phi-4 Reasoning 14B (математика)</option>
             <option value="mistral-small:24b">Mistral Small 24B (универсал)</option>
           </select>
         </div>
@@ -490,20 +578,33 @@ body { font-family: 'Segoe UI',system-ui,sans-serif; background:var(--bg); color
           <button class="btn btn-stop" id="tg-stop-btn" onclick="tgStop()" style="display:none;">⏹ Выключить</button>
         </div>
         <select id="tg-model" class="agent-input" style="width:250px;padding:6px 10px;font-size:12px;" onchange="tgSaveConfig()">
-          <option value="qwen3.5:35b-a3b">Qwen 3.5 35B-A3B</option>
-          <option value="nemotron-3-nano:30b">Nemotron 30B (быстрый)</option>
+          <option value="qwen3.5:35b-a3b">Qwen 3.5 35B-A3B (112 tok/s)</option>
+          <option value="qwen3.5:27b">Qwen 3.5 27B</option>
+          <option value="qwen3.5:9b">Qwen 3.5 9B (лёгкий)</option>
+          <option value="gemma3:27b">Gemma 3 27B (140 языков)</option>
+          <option value="nemotron-3-nano:30b">Nemotron 30B (1M контекст)</option>
+          <option value="deepseek-r1:14b">DeepSeek-R1 14B</option>
           <option value="mistral-small:24b">Mistral Small 24B</option>
         </select>
       </div>
 
       <!-- Personas -->
-      <label style="color:var(--gray);font-size:11px;display:block;margin-bottom:6px;">Персонаж</label>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+        <label style="color:var(--gray);font-size:11px;">Персонаж</label>
+        <button class="btn btn-start" style="font-size:10px;padding:3px 10px;" onclick="tgOpenPersonaModal()">+ Новая персона</button>
+      </div>
       <div id="tg-personas" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;"></div>
 
-      <!-- Custom prompt -->
-      <div id="tg-custom-prompt" style="display:none;margin-bottom:12px;">
-        <label style="color:var(--gray);font-size:10px;">Свой системный промпт</label>
-        <textarea class="agent-input" id="tg-custom-text" rows="3" style="font-size:12px;resize:vertical;" onchange="tgSaveCustom()"></textarea>
+      <!-- Edit prompt inline (for selected persona) -->
+      <div id="tg-persona-edit-area" style="display:none;margin-bottom:12px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+          <label style="color:var(--gray);font-size:10px;" id="tg-edit-label">Системный промпт</label>
+          <div style="display:flex;gap:6px;">
+            <button class="btn btn-start" style="font-size:10px;padding:2px 8px;" onclick="tgEditCurrentPersona()">✏️ Ред.</button>
+            <button class="btn-clean" style="font-size:10px;padding:2px 8px;" id="tg-delete-btn" onclick="tgDeleteCurrentPersona()">🗑</button>
+          </div>
+        </div>
+        <textarea class="agent-input" id="tg-custom-text" rows="3" style="font-size:12px;resize:vertical;" onchange="tgSavePersonaPrompt()"></textarea>
       </div>
 
       <!-- Settings -->
@@ -519,15 +620,20 @@ body { font-family: 'Segoe UI',system-ui,sans-serif; background:var(--bg); color
         <div style="display:flex;align-items:center;padding-top:14px;">
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;color:var(--gray);font-size:11px;">
             <input type="checkbox" id="tg-voice-reply" onchange="tgSaveConfig()" style="width:16px;height:16px;cursor:pointer;" />
-            🎤 Voice Clone (войс→войс)
+            🎤 Voice Clone
+          </label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;color:var(--gray);font-size:11px;margin-top:4px;">
+            <input type="checkbox" id="tg-vision-reply" onchange="tgSaveConfig()" style="width:16px;height:16px;cursor:pointer;" />
+            👁️ Vision (фото→текст)
           </label>
         </div>
       </div>
     </div>
 
     <!-- Sessions list -->
-    <div style="margin-bottom:8px;">
-      <h3 style="color:var(--gray);font-size:14px;margin-bottom:10px;">Сессии разговоров</h3>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+      <h3 style="color:var(--gray);font-size:14px;">Сессии разговоров</h3>
+      <button class="btn-clean" onclick="tgDeleteAllSessions()">🗑 Удалить все</button>
     </div>
     <div id="tg-sessions"></div>
 
@@ -542,6 +648,35 @@ body { font-family: 'Segoe UI',system-ui,sans-serif; background:var(--bg); color
       <div id="tg-contact-tabs" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;"></div>
       <!-- Messages for selected contact -->
       <div id="tg-contact-messages" style="max-height:500px;overflow-y:auto;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Persona CRUD Modal -->
+<div id="tg-persona-overlay" class="smm-wizard-overlay" style="display:none" onclick="if(event.target===this)tgClosePersonaModal()">
+  <div class="smm-wizard" style="width:520px;">
+    <h3 id="tg-persona-modal-title">🤖 Новая персона</h3>
+    <div class="smm-field">
+      <label>Имя персоны</label>
+      <input class="agent-input" id="tg-pm-name" placeholder="Например: Пират-ботаник" style="font-size:13px;" />
+    </div>
+    <div class="smm-field">
+      <label>Иконка (эмодзи)</label>
+      <input class="agent-input" id="tg-pm-icon" placeholder="🤖" style="font-size:13px;width:80px;" maxlength="4" />
+    </div>
+    <div class="smm-field">
+      <label>Системный промпт</label>
+      <textarea class="agent-input" id="tg-pm-prompt" rows="6" placeholder="Опиши характер, стиль общения, примеры реплик..." style="font-size:12px;resize:vertical;"></textarea>
+    </div>
+    <div class="smm-field" style="display:flex;gap:16px;">
+      <label style="display:flex;align-items:center;gap:6px;cursor:pointer;">
+        <input type="checkbox" id="tg-pm-voice" style="width:16px;height:16px;" /> 🎤 Voice reply
+      </label>
+    </div>
+    <input type="hidden" id="tg-pm-edit-id" value="" />
+    <div class="smm-wizard-nav">
+      <button class="btn btn-stop" style="padding:8px 20px;font-size:12px;" onclick="tgClosePersonaModal()">Отмена</button>
+      <button class="btn btn-start" style="padding:8px 20px;font-size:12px;" onclick="tgSavePersonaModal()">💾 Сохранить</button>
     </div>
   </div>
 </div>
@@ -628,6 +763,445 @@ body { font-family: 'Segoe UI',system-ui,sans-serif; background:var(--bg); color
     <div style="margin-top:24px;">
       <h3 style="color:var(--gray);font-size:14px;margin-bottom:10px;">Обученные адаптеры</h3>
       <div id="ft-adapters" style="font-size:12px;color:var(--gray2);"></div>
+    </div>
+  </div>
+</div>
+
+<!-- SMM Tab -->
+<div class="main" id="smm-tab" style="display:none">
+  <div class="category">
+    <div class="category-header">
+      <h2>📱 SMM AI Department</h2>
+      <span class="badge" id="smm-status-badge">Готов</span>
+    </div>
+
+    <!-- Profile selector -->
+    <div class="agent-card" style="margin-bottom:12px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+        <div style="display:flex;gap:8px;align-items:center;">
+          <label style="color:var(--gray);font-size:12px;font-weight:600;">Профиль:</label>
+          <select id="smm-profile-select" class="agent-input" style="width:280px;padding:6px 10px;font-size:13px;" onchange="smmSelectProfile(this.value)">
+            <option value="">— Выберите профиль —</option>
+          </select>
+          <button class="btn btn-start" style="font-size:11px;padding:5px 14px;" onclick="smmShowWizard()">+ Новый профиль</button>
+        </div>
+        <div style="display:flex;gap:6px;">
+          <button class="btn btn-open" style="font-size:11px;" onclick="smmEditProfile()" id="smm-edit-btn" disabled>✏️ Ред.</button>
+          <button class="btn-clean" onclick="smmDeleteProfile()" id="smm-delete-btn" disabled>Удалить</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile info -->
+    <div id="smm-profile-info" class="agent-card" style="margin-bottom:12px;display:none;"></div>
+
+    <!-- Trends panel -->
+    <div class="agent-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+        <span style="font-size:15px;font-weight:600;color:var(--accent);">🔍 Trend Scout</span>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <select id="smm-trend-history" class="agent-input" style="width:140px;padding:3px 6px;font-size:10px;" onchange="smmLoadTrendById(this.value)">
+            <option value="">Последний скан</option>
+          </select>
+          <span id="smm-trend-status" style="font-size:11px;color:var(--gray2);"></span>
+          <select id="smm-trend-model" class="agent-input" style="width:200px;padding:5px 8px;font-size:11px;">
+            <option value="nemotron-3-nano:30b">Nemotron 3 Nano 30B (1M)</option>
+            <option value="qwen3.5:35b-a3b">Qwen 3.5 35B-A3B (MoE)</option>
+            <option value="qwen3.5:27b" selected>Qwen 3.5 27B</option>
+            <option value="qwen3.5:9b">Qwen 3.5 9B (быстрый)</option>
+            <option value="gemma3:27b">Gemma 3 27B</option>
+            <option value="deepseek-r1:32b">DeepSeek-R1 32B</option>
+            <option value="mistral-small:24b">Mistral Small 24B</option>
+            <option value="command-r:35b">Command R 35B</option>
+          </select>
+          <button class="btn-run" id="smm-scan-btn" onclick="smmScanTrends()" disabled style="font-size:12px;padding:6px 16px;">🔍 Сканировать тренды</button>
+          <select id="smm-batch-days" class="agent-input" style="width:70px;padding:3px 6px;font-size:10px;" disabled>
+            <option value="3">3 дня</option><option value="5">5 дн</option><option value="7" selected>7 дн</option><option value="14">14 дн</option>
+          </select>
+          <button class="btn btn-start" id="smm-batch-btn" onclick="smmBatchGenerate()" disabled style="font-size:11px;padding:4px 10px;">📦 Batch</button>
+        </div>
+      </div>
+      <div id="smm-custom-prompt-wrap" style="margin-bottom:14px;">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;cursor:pointer;" onclick="document.getElementById('smm-custom-prompt').style.display=document.getElementById('smm-custom-prompt').style.display==='none'?'block':'none';this.querySelector('span').textContent=document.getElementById('smm-custom-prompt').style.display==='none'?'▶':'▼'">
+          <span style="font-size:10px;color:var(--gray2);">▶</span>
+          <label style="color:var(--gray2);font-size:11px;cursor:pointer;">Дополнительный контекст для поиска</label>
+        </div>
+        <textarea class="agent-input" id="smm-custom-prompt" style="display:none;width:100%;height:60px;font-size:12px;resize:vertical;" placeholder="Например: Сфокусируйся на open-source инструментах для DevOps. Ищи контент про self-hosted решения. Не показывай новости про крипто."></textarea>
+      </div>
+      <div id="smm-trends-list">
+        <div style="color:var(--gray2);font-size:13px;text-align:center;padding:40px;">
+          Выберите профиль и нажмите «Сканировать тренды»
+        </div>
+      </div>
+    </div>
+
+    <!-- GitHub Trending Panel -->
+    <div class="agent-card" style="margin-top:12px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+        <span style="font-size:15px;font-weight:600;color:var(--white);">⭐ GitHub Trending</span>
+        <div style="display:flex;gap:6px;align-items:center;">
+          <span id="smm-gh-status" style="font-size:11px;color:var(--gray2);"></span>
+          <button class="btn-run" id="smm-gh-btn" onclick="smmGithubSearch()" disabled style="font-size:12px;padding:5px 14px;">🔍 Найти</button>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap;">
+        <input class="agent-input" id="smm-gh-keywords" placeholder="AI, LLM, agents, RAG, ComfyUI" style="flex:1;min-width:200px;padding:5px 8px;font-size:12px;" />
+        <select class="agent-input" id="smm-gh-period" style="width:100px;padding:4px 6px;font-size:11px;">
+          <option value="day">За день</option>
+          <option value="week" selected>За неделю</option>
+          <option value="month">За месяц</option>
+        </select>
+        <select class="agent-input" id="smm-gh-min-stars" style="width:90px;padding:4px 6px;font-size:11px;">
+          <option value="10">10+ ⭐</option>
+          <option value="50">50+ ⭐</option>
+          <option value="100">100+ ⭐</option>
+          <option value="500">500+ ⭐</option>
+        </select>
+        <select class="agent-input" id="smm-gh-sort" style="width:110px;padding:4px 6px;font-size:11px;">
+          <option value="velocity">По скорости</option>
+          <option value="stars">По звёздам</option>
+          <option value="forks">По форкам</option>
+        </select>
+      </div>
+      <div id="smm-gh-results">
+        <div style="color:var(--gray2);font-size:12px;text-align:center;padding:20px;">Введите ключевые слова и нажмите «Найти»</div>
+      </div>
+    </div>
+
+    <!-- Post Writer Panel -->
+    <div class="agent-card" id="smm-post-gen" style="display:none;margin-top:12px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+        <span style="font-size:15px;font-weight:600;color:var(--accent2);">📝 Post Writer</span>
+        <button class="btn btn-open" style="font-size:11px;" onclick="document.getElementById('smm-post-gen').style.display='none'">✕ Закрыть</button>
+      </div>
+      <div id="smm-post-topic" style="background:var(--bg);border-radius:8px;padding:10px;margin-bottom:12px;font-size:13px;color:var(--gray);"></div>
+      <div style="margin-bottom:12px;">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;cursor:pointer;" onclick="const t=document.getElementById('smm-post-context');t.style.display=t.style.display==='none'?'block':'none';this.querySelector('span').textContent=t.style.display==='none'?'▶':'▼'">
+          <span style="font-size:10px;color:var(--gray2);">▶</span>
+          <label style="color:var(--gray2);font-size:11px;cursor:pointer;">Дополнительный контекст / инструкции</label>
+        </div>
+        <textarea class="agent-input" id="smm-post-context" style="display:none;width:100%;height:50px;font-size:12px;resize:vertical;" placeholder="Напр.: Сделай акцент на сравнении с конкурентами. Упомяни наш продукт X. Не используй слово 'революция'."></textarea>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;margin-bottom:12px;flex-wrap:wrap;">
+        <label style="color:var(--gray2);font-size:11px;">Платформы:</label>
+        <div id="smm-post-platforms" style="display:flex;gap:6px;flex-wrap:wrap;"></div>
+        <div style="margin-left:auto;display:flex;gap:8px;align-items:center;">
+          <select id="smm-post-model" class="agent-input" style="width:200px;padding:4px 8px;font-size:11px;">
+            <option value="nemotron-3-nano:30b">Nemotron 30B</option>
+            <option value="qwen3.5:35b-a3b">Qwen 3.5 35B MoE</option>
+            <option value="qwen3.5:27b" selected>Qwen 3.5 27B</option>
+            <option value="qwen3.5:9b">Qwen 3.5 9B</option>
+            <option value="deepseek-r1:14b">DeepSeek-R1 14B</option>
+          </select>
+          <button class="btn-run" id="smm-gen-btn" onclick="smmRunGenerate()" style="font-size:12px;padding:6px 16px;">✨ Сгенерировать</button>
+        </div>
+      </div>
+      <div id="smm-post-results" style="display:none;">
+        <div id="smm-post-cards" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;"></div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <button class="btn-run" onclick="smmAddToQueue()" style="font-size:12px;padding:6px 16px;">📋 В очередь</button>
+          <div style="display:flex;gap:6px;align-items:center;margin-left:auto;flex:1;max-width:500px;">
+            <input class="agent-input" id="smm-img-prompt" placeholder="Свой промпт (опционально): futuristic AI workspace, neon glow..." style="flex:1;padding:4px 8px;font-size:11px;" />
+            <button class="btn btn-start" id="smm-img-btn" onclick="smmGenerateImage()" style="font-size:11px;padding:4px 12px;white-space:nowrap;">🖼 Генерация</button>
+          </div>
+        </div>
+        <div id="smm-img-preview" style="margin-top:12px;display:none;"></div>
+      </div>
+      <div id="smm-gen-loading" style="display:none;text-align:center;padding:20px;color:var(--gray2);">⏳ Генерация постов...</div>
+    </div>
+
+    <!-- Content Queue -->
+    <div class="agent-card" style="margin-top:12px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+        <span style="font-size:15px;font-weight:600;color:var(--green);">📋 Очередь контента</span>
+        <span id="smm-queue-count" style="font-size:11px;color:var(--gray2);"></span>
+      </div>
+      <div id="smm-queue-list">
+        <div style="color:var(--gray2);font-size:13px;text-align:center;padding:20px;">Очередь пуста</div>
+      </div>
+    </div>
+
+    <!-- Content Calendar -->
+    <div class="agent-card" style="margin-top:12px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+        <span style="font-size:15px;font-weight:600;color:var(--accent2);">📅 Контент-календарь</span>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <button class="btn btn-open" style="font-size:11px;padding:3px 8px;" onclick="smmCalendarNav(-1)">← Неделя</button>
+          <span id="smm-cal-range" style="font-size:12px;color:var(--gray);"></span>
+          <button class="btn btn-open" style="font-size:11px;padding:3px 8px;" onclick="smmCalendarNav(1)">Неделя →</button>
+        </div>
+      </div>
+      <div id="smm-calendar" style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px;"></div>
+    </div>
+
+    <!-- Analytics -->
+    <div class="agent-card" style="margin-top:12px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+        <span style="font-size:15px;font-weight:600;color:var(--accent2);">📊 Аналитика</span>
+        <button class="btn btn-open" style="font-size:10px;padding:2px 8px;" onclick="smmLoadAnalytics()">🔄</button>
+      </div>
+      <div id="smm-analytics">
+        <div style="color:var(--gray2);font-size:12px;text-align:center;padding:15px;">Данные загружаются после первой публикации</div>
+      </div>
+    </div>
+
+    <!-- Event Log -->
+    <div class="agent-card" style="margin-top:12px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+        <span style="font-size:13px;font-weight:600;color:var(--gray);">📋 Лог событий</span>
+        <button class="btn btn-open" style="font-size:10px;padding:2px 8px;" onclick="smmLoadEvents()">🔄</button>
+      </div>
+      <div id="smm-events" style="max-height:150px;overflow-y:auto;font-size:11px;color:var(--gray2);"></div>
+    </div>
+
+    <!-- SMM Storage -->
+    <div class="agent-card" style="margin-top:12px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:13px;font-weight:600;color:var(--gray);">💾 Хранилище SMM</span>
+        <div id="smm-storage-info" style="display:flex;gap:12px;font-size:11px;color:var(--gray2);"></div>
+      </div>
+      <div style="display:flex;gap:6px;margin-top:8px;">
+        <button class="btn-clean" onclick="smmCleanup('images')">🖼 Очистить картинки</button>
+        <button class="btn-clean" onclick="smmCleanup('trends')">📊 Очистить отчёты</button>
+        <button class="btn-clean" onclick="smmCleanup('all')">🗑 Очистить всё</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SMM Profile Wizard -->
+<div id="smm-wizard-overlay" class="smm-wizard-overlay" style="display:none" onclick="if(event.target===this)smmCloseWizard()">
+  <div class="smm-wizard">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+      <h3 style="margin:0;" id="smm-wizard-title">Новый профиль</h3>
+      <button class="btn btn-open" style="font-size:18px;padding:2px 8px;" onclick="smmCloseWizard()">✕</button>
+    </div>
+    <div class="smm-wizard-dots" id="smm-wizard-dots">
+      <div class="smm-wizard-dot active"></div>
+      <div class="smm-wizard-dot"></div>
+      <div class="smm-wizard-dot"></div>
+      <div class="smm-wizard-dot"></div>
+    </div>
+
+    <!-- Step 1: Basic -->
+    <div class="smm-wizard-step active" id="smm-step-1">
+      <h3>Основное</h3>
+      <div class="smm-field">
+        <label>Название профиля</label>
+        <input class="agent-input" id="smm-w-name" placeholder="Мой тех блог" style="width:100%;" />
+      </div>
+      <div class="smm-field">
+        <label>Ниша (через запятую)</label>
+        <input class="agent-input" id="smm-w-niche" placeholder="AI/ML, DevOps, Open Source" style="width:100%;" />
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div class="smm-field">
+          <label>Тон</label>
+          <select class="agent-input" id="smm-w-tone" style="width:100%;">
+            <option value="professional">Профессиональный</option>
+            <option value="casual">Неформальный</option>
+            <option value="humorous">С юмором</option>
+            <option value="technical">Технический</option>
+            <option value="friendly">Дружелюбный</option>
+            <option value="provocative">Провокационный</option>
+          </select>
+        </div>
+        <div class="smm-field">
+          <label>Язык</label>
+          <select class="agent-input" id="smm-w-lang" style="width:100%;">
+            <option value="ru">Русский</option>
+            <option value="en">English</option>
+            <option value="ru+en">RU + EN</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2: Platforms -->
+    <div class="smm-wizard-step" id="smm-step-2">
+      <h3>Платформы и подключение</h3>
+      <p style="color:var(--gray2);font-size:11px;margin-bottom:10px;">Включите платформы и следуйте инструкциям для подключения автопубликации</p>
+      <div id="smm-w-platforms">
+
+        <!-- Telegram -->
+        <div class="smm-platform-toggle" onclick="smmTogglePlatform(this,'telegram',event)">
+          <input type="checkbox" id="smm-p-telegram" onchange="smmPlatformCheckbox('telegram')" /> <span>💬 Telegram</span>
+          <span style="margin-left:auto;font-size:10px;color:var(--green);" id="smm-status-telegram"></span>
+        </div>
+        <div class="smm-platform-extra" id="smm-pe-telegram">
+          <div style="background:var(--bg2);border-radius:6px;padding:8px;margin-bottom:6px;font-size:11px;color:var(--gray2);line-height:1.6;">
+            <strong style="color:var(--accent);">Как подключить:</strong><br>
+            1. Открой <a href="https://t.me/BotFather" target="_blank" style="color:var(--accent);">@BotFather</a> в Telegram<br>
+            2. Отправь <code>/newbot</code> → придумай имя → получишь токен<br>
+            3. Создай канал и добавь бота как <strong>администратора</strong> (право "Post Messages")<br>
+            4. Вставь токен и @username канала ниже
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+            <input class="agent-input" id="smm-pc-telegram" placeholder="Bot Token: 123456:ABC-DEF..." style="font-size:11px;padding:6px 8px;" />
+            <input class="agent-input" id="smm-pc-telegram-channel" placeholder="Channel: @mychannel или -100123..." style="font-size:11px;padding:6px 8px;" />
+          </div>
+        </div>
+
+        <!-- Discord -->
+        <div class="smm-platform-toggle" onclick="smmTogglePlatform(this,'discord',event)">
+          <input type="checkbox" id="smm-p-discord" onchange="smmPlatformCheckbox('discord')" /> <span>🎮 Discord</span>
+          <span style="margin-left:auto;font-size:10px;color:var(--green);" id="smm-status-discord"></span>
+        </div>
+        <div class="smm-platform-extra" id="smm-pe-discord">
+          <div style="background:var(--bg2);border-radius:6px;padding:8px;margin-bottom:6px;font-size:11px;color:var(--gray2);line-height:1.6;">
+            <strong style="color:var(--accent);">Как подключить:</strong><br>
+            1. Открой сервер Discord → <strong>Settings → Integrations → Webhooks</strong><br>
+            2. Нажми <strong>New Webhook</strong> → выбери канал<br>
+            3. Нажми <strong>Copy Webhook URL</strong> → вставь ниже
+          </div>
+          <input class="agent-input" id="smm-pc-discord" placeholder="https://discord.com/api/webhooks/123456/abcdef..." style="width:100%;font-size:11px;padding:6px 8px;" />
+        </div>
+
+        <!-- Twitter/X -->
+        <div class="smm-platform-toggle" onclick="smmTogglePlatform(this,'twitter',event)">
+          <input type="checkbox" id="smm-p-twitter" onchange="smmPlatformCheckbox('twitter')" /> <span>🐦 Twitter / X</span>
+          <span style="margin-left:auto;font-size:10px;color:var(--green);" id="smm-status-twitter"></span>
+        </div>
+        <div class="smm-platform-extra" id="smm-pe-twitter">
+          <div style="background:var(--bg2);border-radius:6px;padding:8px;margin-bottom:6px;font-size:11px;color:var(--gray2);line-height:1.6;">
+            <strong style="color:var(--accent);">Как подключить:</strong><br>
+            1. <a href="https://developer.x.com/en/portal" target="_blank" style="color:var(--accent);">developer.x.com</a> → Create App → OAuth 1.0a (Read and Write)<br>
+            2. Вставь все 4 ключа ниже
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+            <input class="agent-input" id="smm-pc-twitter" placeholder="Consumer Key (API Key)" style="font-size:11px;padding:5px 8px;" />
+            <input class="agent-input" id="smm-pc-twitter-secret" placeholder="Consumer Secret" style="font-size:11px;padding:5px 8px;" />
+            <input class="agent-input" id="smm-pc-twitter-access" placeholder="Access Token" style="font-size:11px;padding:5px 8px;" />
+            <input class="agent-input" id="smm-pc-twitter-access-secret" placeholder="Access Token Secret" style="font-size:11px;padding:5px 8px;" />
+          </div>
+        </div>
+
+        <!-- LinkedIn -->
+        <div class="smm-platform-toggle" onclick="smmTogglePlatform(this,'linkedin',event)">
+          <input type="checkbox" id="smm-p-linkedin" onchange="smmPlatformCheckbox('linkedin')" /> <span>💼 LinkedIn</span>
+          <span style="margin-left:auto;font-size:10px;color:var(--green);" id="smm-status-linkedin"></span>
+        </div>
+        <div class="smm-platform-extra" id="smm-pe-linkedin">
+          <div style="background:var(--bg2);border-radius:6px;padding:8px;margin-bottom:6px;font-size:11px;color:var(--gray2);line-height:1.6;">
+            <strong style="color:var(--accent);">Как подключить:</strong><br>
+            1. <a href="https://www.linkedin.com/developers/" target="_blank" style="color:var(--accent);">linkedin.com/developers</a> → Create App → запроси w_member_social<br>
+            2. Получи Access Token и Person URN (urn:li:person:XXXXX)
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+            <input class="agent-input" id="smm-pc-linkedin" placeholder="Access Token" style="font-size:11px;padding:5px 8px;" />
+            <input class="agent-input" id="smm-pc-linkedin-urn" placeholder="Person URN: urn:li:person:XXXXX" style="font-size:11px;padding:5px 8px;" />
+          </div>
+        </div>
+
+        <!-- Facebook -->
+        <div class="smm-platform-toggle" onclick="smmTogglePlatform(this,'facebook',event)">
+          <input type="checkbox" id="smm-p-facebook" onchange="smmPlatformCheckbox('facebook')" /> <span>📘 Facebook</span>
+        </div>
+        <div class="smm-platform-extra" id="smm-pe-facebook">
+          <div style="background:var(--bg2);border-radius:6px;padding:8px;margin-bottom:6px;font-size:11px;color:var(--gray2);line-height:1.6;">
+            <strong style="color:var(--accent);">Как подключить:</strong><br>
+            1. <a href="https://developers.facebook.com" target="_blank" style="color:var(--accent);">developers.facebook.com</a> → Create App<br>
+            2. Получи Page Access Token и Page ID
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+            <input class="agent-input" id="smm-pc-facebook" placeholder="Page Access Token" style="font-size:11px;padding:5px 8px;" />
+            <input class="agent-input" id="smm-pc-facebook-page-id" placeholder="Page ID: 123456789" style="font-size:11px;padding:5px 8px;" />
+          </div>
+        </div>
+
+        <!-- Instagram -->
+        <div class="smm-platform-toggle" onclick="smmTogglePlatform(this,'instagram',event)">
+          <input type="checkbox" id="smm-p-instagram" onchange="smmPlatformCheckbox('instagram')" /> <span>📷 Instagram</span>
+          <span style="margin-left:auto;font-size:10px;color:var(--green);" id="smm-status-instagram"></span>
+        </div>
+        <div class="smm-platform-extra" id="smm-pe-instagram">
+          <div style="background:var(--bg2);border-radius:6px;padding:8px;margin-bottom:6px;font-size:11px;color:var(--gray2);line-height:1.6;">
+            <strong style="color:var(--accent);">Как подключить:</strong><br>
+            1. Instagram → Settings → Switch to Professional (Business) account<br>
+            2. Подключи Instagram к Facebook Page (Settings → Linked Accounts)<br>
+            3. <a href="https://developers.facebook.com/tools/explorer/" target="_blank" style="color:var(--accent);">Graph API Explorer</a> → permissions: <code>instagram_basic</code>, <code>instagram_content_publish</code><br>
+            4. <code>GET /me/accounts</code> → найди page → <code>GET /{page_id}?fields=instagram_business_account</code>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+            <input class="agent-input" id="smm-pc-instagram" placeholder="Meta Access Token" style="font-size:11px;padding:5px 8px;" />
+            <input class="agent-input" id="smm-pc-instagram-account-id" placeholder="IG Business Account ID: 17841..." style="font-size:11px;padding:5px 8px;" />
+          </div>
+        </div>
+
+        <!-- Threads -->
+        <div class="smm-platform-toggle" onclick="smmTogglePlatform(this,'threads',event)">
+          <input type="checkbox" id="smm-p-threads" onchange="smmPlatformCheckbox('threads')" /> <span>🧵 Threads</span>
+          <span style="margin-left:auto;font-size:10px;color:var(--green);" id="smm-status-threads"></span>
+        </div>
+        <div class="smm-platform-extra" id="smm-pe-threads">
+          <div style="background:var(--bg2);border-radius:6px;padding:8px;margin-bottom:6px;font-size:11px;color:var(--gray2);line-height:1.6;">
+            <strong style="color:var(--accent);">Как подключить:</strong><br>
+            1. Тот же Meta Developer App что для Instagram<br>
+            2. Permissions: <code>threads_basic</code>, <code>threads_content_publish</code><br>
+            3. Threads User ID = твой Instagram/Threads user ID
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+            <input class="agent-input" id="smm-pc-threads" placeholder="Threads Access Token" style="font-size:11px;padding:5px 8px;" />
+            <input class="agent-input" id="smm-pc-threads-user-id" placeholder="Threads User ID: 12345..." style="font-size:11px;padding:5px 8px;" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Step 3: Schedule -->
+    <div class="smm-wizard-step" id="smm-step-3">
+      <h3>Расписание</h3>
+      <p style="color:var(--gray2);font-size:12px;margin-bottom:12px;">Настройте дни и время для каждой включённой платформы</p>
+      <div id="smm-w-schedule"></div>
+    </div>
+
+    <!-- Step 4: Style -->
+    <div class="smm-wizard-step" id="smm-step-4">
+      <h3>Стиль и детали</h3>
+      <div class="smm-field">
+        <label>Визуальный стиль</label>
+        <select class="agent-input" id="smm-w-style" style="width:100%;">
+          <option value="tech-dark">Тех / Тёмный</option>
+          <option value="clean-corp">Чистый / Корп</option>
+          <option value="bright-social">Яркий / Соц</option>
+          <option value="photorealism">Фото-реализм</option>
+          <option value="illustration">Иллюстрация</option>
+          <option value="meme">Мем-формат</option>
+          <option value="infographic">Инфографика</option>
+        </select>
+      </div>
+      <div class="smm-field">
+        <label>Хэштеги (через запятую)</label>
+        <input class="agent-input" id="smm-w-hashtags" placeholder="#AI, #ML, #LocalAI, #OpenSource" style="width:100%;" />
+      </div>
+      <div class="smm-field">
+        <label>Конкуренты (через запятую)</label>
+        <input class="agent-input" id="smm-w-competitors" placeholder="@competitor1, competitor.com" style="width:100%;" />
+      </div>
+    </div>
+
+    <!-- Wizard nav -->
+    <div class="smm-wizard-nav">
+      <button class="btn btn-open" id="smm-w-back" onclick="smmWizardStep(-1)" style="display:none;">← Назад</button>
+      <div></div>
+      <button class="btn-run" id="smm-w-next" onclick="smmWizardStep(1)" style="font-size:13px;padding:8px 20px;">Далее →</button>
+    </div>
+  </div>
+</div>
+
+<!-- Publish Preview Modal -->
+<div id="smm-preview-overlay" class="smm-wizard-overlay" style="display:none" onclick="if(event.target===this)document.getElementById('smm-preview-overlay').style.display='none'">
+  <div class="smm-wizard" style="width:700px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+      <h3 style="margin:0;color:var(--accent);">Превью публикации</h3>
+      <button class="btn btn-open" style="font-size:18px;padding:2px 8px;" onclick="document.getElementById('smm-preview-overlay').style.display='none'">✕</button>
+    </div>
+    <div id="smm-preview-content" style="max-height:60vh;overflow-y:auto;"></div>
+    <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid var(--bg3);">
+      <button class="btn btn-open" onclick="document.getElementById('smm-preview-overlay').style.display='none'">Отмена</button>
+      <button class="btn-run" id="smm-preview-confirm" style="padding:8px 20px;">🚀 Подтвердить публикацию</button>
     </div>
   </div>
 </div>
@@ -1167,12 +1741,14 @@ function switchTab(tab) {
   document.getElementById('finetune-tab').style.display = tab === 'finetune' ? 'block' : 'none';
   document.getElementById('rag-tab').style.display = tab === 'rag' ? 'block' : 'none';
   document.getElementById('telegram-tab').style.display = tab === 'telegram' ? 'block' : 'none';
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('smm-tab').style.display = tab === 'smm' ? 'block' : 'none';
+  document.querySelectorAll('.header .tab-nav > .tab-btn').forEach(b => b.classList.remove('active'));
   event.target.classList.add('active');
   if (tab === 'agents') { loadAgents(); loadHistory(); }
   if (tab === 'finetune') { loadFinetuneInfo(); }
   if (tab === 'rag') { loadRagCollections(); loadRagChatHistory(); }
   if (tab === 'telegram') { loadTelegram(); }
+  if (tab === 'smm') { smmLoadProfiles(); }
 }
 
 // ─── Agents Constructor ───
@@ -1703,20 +2279,28 @@ async function loadTelegram() {
   if (tgConfig.cooldown_seconds) document.getElementById('tg-cooldown').value = tgConfig.cooldown_seconds;
   if (tgConfig.max_response_length) document.getElementById('tg-maxlen').value = tgConfig.max_response_length;
   document.getElementById('tg-voice-reply').checked = !!tgConfig.voice_reply;
+  document.getElementById('tg-vision-reply').checked = !!tgConfig.vision_reply;
 
   // Personas
   const personas = tgConfig.personas || {};
+  const defaultIds = new Set(["philosopher","gopnik","it_demon","granny","noir","pirate","cat","conspiracy","shakespeare","zombie","corporate","capybara","crypto","custom"]);
   document.getElementById('tg-personas').innerHTML = Object.entries(personas).map(([id, p]) => {
     const active = id === tgConfig.active_persona;
-    return `<button class="tab-btn${active?' active':''}" style="font-size:12px;padding:5px 12px;" onclick="tgSetPersona('${id}')">${p.icon} ${p.name}</button>`;
+    const isCustom = !defaultIds.has(id);
+    return `<button class="tab-btn${active?' active':''}" style="font-size:12px;padding:5px 12px;position:relative;" onclick="tgSetPersona('${id}')" title="${isCustom ? '(кастомная)' : '(дефолтная)'}">${p.icon} ${p.name}</button>`;
   }).join('');
 
-  // Custom prompt
-  if (tgConfig.active_persona === 'custom') {
-    document.getElementById('tg-custom-prompt').style.display = 'block';
-    document.getElementById('tg-custom-text').value = personas.custom?.system_prompt || '';
+  // Show edit area for active persona
+  const activeP = personas[tgConfig.active_persona];
+  const editArea = document.getElementById('tg-persona-edit-area');
+  const deleteBtn = document.getElementById('tg-delete-btn');
+  if (activeP) {
+    editArea.style.display = 'block';
+    document.getElementById('tg-edit-label').textContent = `Промпт: ${activeP.icon} ${activeP.name}`;
+    document.getElementById('tg-custom-text').value = activeP.system_prompt || '';
+    deleteBtn.style.display = defaultIds.has(tgConfig.active_persona) ? 'none' : 'inline-block';
   } else {
-    document.getElementById('tg-custom-prompt').style.display = 'none';
+    editArea.style.display = 'none';
   }
 
   // Sessions list
@@ -1826,6 +2410,14 @@ function tgCloseSession() {
   document.getElementById('tg-sessions').style.display = 'block';
 }
 
+async function tgDeleteAllSessions() {
+  if (!confirm('Удалить ВСЕ сессии разговоров? Это необратимо.')) return;
+  const res = await fetch('/api/telegram/sessions', {method:'DELETE'});
+  const data = await res.json();
+  toast(data.message);
+  loadTelegram();
+}
+
 async function tgDeleteCurrentSession() {
   if (!tgCurrentSessionId) return;
   if (!confirm('Удалить эту сессию и все разговоры в ней?')) return;
@@ -1848,16 +2440,92 @@ async function tgSaveConfig() {
     cooldown_seconds: parseInt(document.getElementById('tg-cooldown').value),
     max_response_length: parseInt(document.getElementById('tg-maxlen').value),
     voice_reply: document.getElementById('tg-voice-reply').checked,
+    vision_reply: document.getElementById('tg-vision-reply').checked,
   })});
 }
 
-async function tgSaveCustom() {
+// ─── Persona CRUD ───
+
+async function tgSavePersonaPrompt() {
+  const pid = tgConfig.active_persona;
+  if (!pid) return;
   const text = document.getElementById('tg-custom-text').value;
-  const personas = tgConfig.personas || {};
-  personas.custom = personas.custom || {};
-  personas.custom.system_prompt = text;
-  await fetch('/api/telegram/config', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({personas})});
-  toast('Custom промпт сохранён');
+  await fetch(`/api/telegram/personas/${pid}`, {
+    method: 'PUT',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({system_prompt: text})
+  });
+  toast('Промпт сохранён');
+}
+
+function tgOpenPersonaModal(editId) {
+  const modal = document.getElementById('tg-persona-overlay');
+  const title = document.getElementById('tg-persona-modal-title');
+  document.getElementById('tg-pm-edit-id').value = editId || '';
+  if (editId && tgConfig.personas?.[editId]) {
+    const p = tgConfig.personas[editId];
+    title.textContent = '✏️ Редактировать: ' + p.icon + ' ' + p.name;
+    document.getElementById('tg-pm-name').value = p.name;
+    document.getElementById('tg-pm-icon').value = p.icon;
+    document.getElementById('tg-pm-prompt').value = p.system_prompt || '';
+    document.getElementById('tg-pm-voice').checked = !!p.voice_reply;
+  } else {
+    title.textContent = '🤖 Новая персона';
+    document.getElementById('tg-pm-name').value = '';
+    document.getElementById('tg-pm-icon').value = '';
+    document.getElementById('tg-pm-prompt').value = '';
+    document.getElementById('tg-pm-voice').checked = false;
+  }
+  modal.style.display = 'flex';
+}
+
+function tgClosePersonaModal() {
+  document.getElementById('tg-persona-overlay').style.display = 'none';
+}
+
+async function tgSavePersonaModal() {
+  const editId = document.getElementById('tg-pm-edit-id').value;
+  const name = document.getElementById('tg-pm-name').value.trim();
+  const icon = document.getElementById('tg-pm-icon').value.trim() || '🤖';
+  const prompt = document.getElementById('tg-pm-prompt').value.trim();
+  const voice = document.getElementById('tg-pm-voice').checked;
+  if (!name) { toast('Введите имя персоны'); return; }
+  if (!prompt) { toast('Введите системный промпт'); return; }
+  let res;
+  if (editId) {
+    res = await fetch(`/api/telegram/personas/${editId}`, {
+      method: 'PUT',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({name, icon, system_prompt: prompt, voice_reply: voice})
+    });
+  } else {
+    res = await fetch('/api/telegram/personas', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({name, icon, system_prompt: prompt, voice_reply: voice})
+    });
+  }
+  const data = await res.json();
+  toast(data.message || (data.ok ? 'Сохранено' : data.error));
+  if (data.ok) {
+    tgClosePersonaModal();
+    loadTelegram();
+  }
+}
+
+function tgEditCurrentPersona() {
+  tgOpenPersonaModal(tgConfig.active_persona);
+}
+
+async function tgDeleteCurrentPersona() {
+  const pid = tgConfig.active_persona;
+  if (!pid) return;
+  const name = tgConfig.personas?.[pid]?.name || pid;
+  if (!confirm(`Удалить персону «${name}»?`)) return;
+  const res = await fetch(`/api/telegram/personas/${pid}`, {method:'DELETE'});
+  const data = await res.json();
+  toast(data.message || data.error);
+  if (data.ok) loadTelegram();
 }
 
 async function tgStart() {
@@ -2033,13 +2701,1372 @@ async function uploadDataset(input) {
   input.value = '';
 }
 
+// ─── SMM AI Department ───
+let smmProfiles = [];
+let smmActiveProfile = null;
+let smmTrendPoll = null;
+let smmWizardCurrent = 1;
+let smmEditMode = false;
+let smmEditId = null;
+
+const SMM_PLATFORMS = [
+  {id:'telegram', icon:'💬', name:'Telegram'},
+  {id:'linkedin', icon:'💼', name:'LinkedIn'},
+  {id:'twitter', icon:'🐦', name:'Twitter/X'},
+  {id:'facebook', icon:'📘', name:'Facebook'},
+  {id:'instagram', icon:'📷', name:'Instagram'},
+  {id:'threads', icon:'🧵', name:'Threads'},
+  {id:'discord', icon:'🎮', name:'Discord'},
+];
+const SMM_DAYS = [{id:'mon',l:'Пн'},{id:'tue',l:'Вт'},{id:'wed',l:'Ср'},{id:'thu',l:'Чт'},{id:'fri',l:'Пт'},{id:'sat',l:'Сб'},{id:'sun',l:'Вс'}];
+
+async function smmLoadProfiles() {
+  const res = await fetch('/api/smm/profiles');
+  const data = await res.json();
+  smmProfiles = data.profiles || [];
+  const sel = document.getElementById('smm-profile-select');
+  const prev = sel.value;
+  sel.innerHTML = '<option value="">— Выберите профиль —</option>' +
+    smmProfiles.map(p => `<option value="${p.id}">${p.name} (${p.niche})</option>`).join('');
+  // Restore selection
+  const saved = prev || localStorage.getItem('smm_active_profile') || '';
+  if (saved && smmProfiles.find(p => p.id === saved)) {
+    sel.value = saved;
+    smmSelectProfile(saved);
+  } else if (smmActiveProfile) {
+    smmSelectProfile('');
+  }
+}
+
+function smmSelectProfile(id) {
+  smmActiveProfile = smmProfiles.find(p => p.id === id) || null;
+  document.getElementById('smm-edit-btn').disabled = !smmActiveProfile;
+  document.getElementById('smm-delete-btn').disabled = !smmActiveProfile;
+  document.getElementById('smm-scan-btn').disabled = !smmActiveProfile;
+  document.getElementById('smm-gh-btn').disabled = !smmActiveProfile;
+  document.getElementById('smm-batch-btn').disabled = !smmActiveProfile;
+  document.getElementById('smm-batch-days').disabled = !smmActiveProfile;
+  if (smmActiveProfile) {
+    const ghInput = document.getElementById('smm-gh-keywords');
+    if (ghInput && !ghInput.value) ghInput.value = smmActiveProfile.niche || '';
+  }
+  localStorage.setItem('smm_active_profile', id);
+  if (smmActiveProfile) {
+    smmRenderProfileInfo(smmActiveProfile);
+    smmLoadTrends();
+    smmLoadTrendHistory();
+    smmLoadQueue();
+    smmLoadCalendar();
+    smmLoadAnalytics();
+    smmLoadEvents();
+    smmLoadStorage();
+  } else {
+    document.getElementById('smm-profile-info').style.display = 'none';
+    document.getElementById('smm-trends-list').innerHTML =
+      '<div style="color:var(--gray2);font-size:13px;text-align:center;padding:40px;">Выберите профиль и нажмите «Сканировать тренды»</div>';
+    document.getElementById('smm-trend-status').textContent = '';
+  }
+}
+
+function smmRenderProfileInfo(p) {
+  const el = document.getElementById('smm-profile-info');
+  const enabledPlatforms = SMM_PLATFORMS.filter(pl => p.platforms?.[pl.id]?.enabled);
+  const platformBadges = enabledPlatforms.map(pl =>
+    `<span style="background:rgba(56,189,248,0.1);color:var(--accent);padding:2px 8px;border-radius:6px;font-size:11px;">${pl.icon} ${pl.name}</span>`
+  ).join(' ') || '<span style="color:var(--gray2);font-size:11px;">Нет платформ</span>';
+
+  const schedHtml = Object.entries(p.posting_schedule || {}).map(([plat, s]) => {
+    const pl = SMM_PLATFORMS.find(x => x.id === plat);
+    const days = (s.days || []).map(d => SMM_DAYS.find(x => x.id === d)?.l || d).join(', ');
+    return `<span style="font-size:11px;color:var(--gray2);">${pl?.icon||''} ${days} в ${s.time || '—'}</span>`;
+  }).join(' &nbsp;|&nbsp; ') || '<span style="color:var(--gray2);font-size:11px;">Не настроено</span>';
+
+  el.innerHTML = `<div class="smm-profile-card">
+    <div class="smm-profile-stat"><div class="label">Ниша</div><div class="value">${p.niche || '—'}</div></div>
+    <div class="smm-profile-stat"><div class="label">Тон</div><div class="value">${p.tone || '—'}</div></div>
+    <div class="smm-profile-stat"><div class="label">Язык</div><div class="value">${p.language || '—'}</div></div>
+  </div>
+  <div style="margin-bottom:8px;">${platformBadges}</div>
+  <div style="margin-bottom:6px;">${schedHtml}</div>
+  <div id="smm-token-health" style="font-size:11px;"></div>`;
+  el.style.display = 'block';
+  // Load token health
+  smmLoadTokenHealth(p.id);
+}
+
+async function smmLoadTokenHealth(profileId) {
+  try {
+    const res = await fetch('/api/smm/token-health?profile_id=' + profileId);
+    const data = await res.json();
+    if (!data.ok) return;
+    const el = document.getElementById('smm-token-health');
+    if (!el) return;
+    const badges = Object.entries(data.health).map(([plat, h]) => {
+      const icon = SMM_PLATFORM_ICONS[plat] || plat;
+      const colors = {ok: 'var(--green)', expiring: 'var(--yellow)', expired: 'var(--red)', permanent: 'var(--accent)', unknown: 'var(--gray2)'};
+      const color = colors[h.status] || 'var(--gray2)';
+      const refreshable = (h.status === 'expiring' || h.status === 'expired') && (plat === 'threads' || plat === 'linkedin');
+      return `<span style="color:${color};margin-right:8px;">${icon} ${h.message}${refreshable ? ` <button class="copy-btn" onclick="smmRefreshToken('${profileId}','${plat}')" style="margin-left:4px;">🔄</button>` : ''}</span>`;
+    }).join('');
+    el.innerHTML = badges ? `🔑 ${badges}` : '';
+  } catch (err) {}
+}
+
+async function smmRefreshToken(profileId, platform) {
+  try {
+    const res = await fetch('/api/smm/token-refresh', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({profile_id: profileId, platform})
+    });
+    const data = await res.json();
+    toast(data.message);
+    if (data.ok) smmLoadTokenHealth(profileId);
+  } catch (err) { toast('Ошибка: ' + err.message); }
+}
+
+// ─── SMM Wizard ───
+function smmShowWizard(edit) {
+  smmEditMode = !!edit;
+  smmEditId = edit?.id || null;
+  smmWizardCurrent = 1;
+  document.getElementById('smm-wizard-title').textContent = edit ? 'Редактировать профиль' : 'Новый профиль';
+  // Reset fields
+  document.getElementById('smm-w-name').value = edit?.name || '';
+  document.getElementById('smm-w-niche').value = edit?.niche || '';
+  document.getElementById('smm-w-tone').value = edit?.tone || 'professional';
+  document.getElementById('smm-w-lang').value = edit?.language || 'ru';
+  document.getElementById('smm-w-style').value = edit?.visual_style || 'tech-dark';
+  document.getElementById('smm-w-hashtags').value = (edit?.hashtags || []).join(', ');
+  document.getElementById('smm-w-competitors').value = (edit?.competitors || []).join(', ');
+  // Reset platforms
+  SMM_PLATFORMS.forEach(pl => {
+    const cb = document.getElementById('smm-p-' + pl.id);
+    const toggle = cb.closest('.smm-platform-toggle');
+    const extra = document.getElementById('smm-pe-' + pl.id);
+    const enabled = edit?.platforms?.[pl.id]?.enabled || false;
+    cb.checked = enabled;
+    toggle.classList.toggle('enabled', enabled);
+    extra.style.display = enabled ? 'block' : 'none';
+    const input = document.getElementById('smm-pc-' + pl.id);
+    const pdata = edit?.platforms?.[pl.id] || {};
+    if (pl.id === 'telegram') {
+      input.value = pdata.bot_token || '';
+      const chEl = document.getElementById('smm-pc-telegram-channel');
+      if (chEl) chEl.value = pdata.channel || '';
+    } else if (pl.id === 'discord') {
+      input.value = pdata.webhook || '';
+    } else if (pl.id === 'twitter') {
+      input.value = pdata.api_key || '';
+      const s = document.getElementById('smm-pc-twitter-secret'); if (s) s.value = pdata.api_secret || '';
+      const a = document.getElementById('smm-pc-twitter-access'); if (a) a.value = pdata.access_token || '';
+      const as = document.getElementById('smm-pc-twitter-access-secret'); if (as) as.value = pdata.access_secret || '';
+    } else if (pl.id === 'linkedin') {
+      input.value = pdata.access_token || '';
+      const u = document.getElementById('smm-pc-linkedin-urn'); if (u) u.value = pdata.person_urn || '';
+    } else if (pl.id === 'facebook') {
+      input.value = pdata.page_token || '';
+      const p = document.getElementById('smm-pc-facebook-page-id'); if (p) p.value = pdata.page_id || '';
+    } else if (pl.id === 'instagram') {
+      input.value = pdata.access_token || '';
+      const a = document.getElementById('smm-pc-instagram-account-id'); if (a) a.value = pdata.account_id || '';
+    } else if (pl.id === 'threads') {
+      input.value = pdata.access_token || '';
+      const u = document.getElementById('smm-pc-threads-user-id'); if (u) u.value = pdata.user_id || '';
+    } else {
+      input.value = pdata.username || '';
+    }
+  });
+  smmUpdateWizardStep();
+  document.getElementById('smm-wizard-overlay').style.display = 'flex';
+}
+
+function smmCloseWizard() {
+  document.getElementById('smm-wizard-overlay').style.display = 'none';
+}
+
+function smmTogglePlatform(el, platform, ev) {
+  if (ev && ev.target.tagName === 'INPUT') return; // checkbox handles itself
+  const cb = document.getElementById('smm-p-' + platform);
+  cb.checked = !cb.checked;
+  smmUpdatePlatformUI(platform);
+}
+function smmPlatformCheckbox(platform) {
+  smmUpdatePlatformUI(platform);
+}
+function smmUpdatePlatformUI(platform) {
+  const cb = document.getElementById('smm-p-' + platform);
+  const toggle = cb.closest('.smm-platform-toggle');
+  toggle.classList.toggle('enabled', cb.checked);
+  document.getElementById('smm-pe-' + platform).style.display = cb.checked ? 'block' : 'none';
+}
+
+function smmWizardStep(dir) {
+  if (dir === 1 && smmWizardCurrent === 1) {
+    if (!document.getElementById('smm-w-name').value.trim()) { toast('Введите название профиля'); return; }
+  }
+  if (dir === 1 && smmWizardCurrent === 2) {
+    smmBuildScheduleUI();
+  }
+  if (dir === 1 && smmWizardCurrent === 4) {
+    smmSaveProfile(); return;
+  }
+  smmWizardCurrent = Math.max(1, Math.min(4, smmWizardCurrent + dir));
+  smmUpdateWizardStep();
+}
+
+function smmUpdateWizardStep() {
+  for (let i = 1; i <= 4; i++) {
+    document.getElementById('smm-step-' + i).classList.toggle('active', i === smmWizardCurrent);
+  }
+  const dots = document.querySelectorAll('#smm-wizard-dots .smm-wizard-dot');
+  dots.forEach((d, i) => {
+    d.className = 'smm-wizard-dot' + (i + 1 === smmWizardCurrent ? ' active' : i + 1 < smmWizardCurrent ? ' done' : '');
+  });
+  document.getElementById('smm-w-back').style.display = smmWizardCurrent > 1 ? '' : 'none';
+  document.getElementById('smm-w-next').textContent = smmWizardCurrent === 4 ? (smmEditMode ? '💾 Сохранить' : '✅ Создать профиль') : 'Далее →';
+}
+
+function smmBuildScheduleUI() {
+  const container = document.getElementById('smm-w-schedule');
+  const enabled = SMM_PLATFORMS.filter(pl => document.getElementById('smm-p-' + pl.id).checked);
+  if (!enabled.length) { container.innerHTML = '<p style="color:var(--gray2);font-size:12px;">Сначала включите хотя бы одну платформу</p>'; return; }
+  // Check if we have existing schedule data (edit mode)
+  const existingSched = smmEditMode && smmActiveProfile ? smmActiveProfile.posting_schedule || {} : {};
+  container.innerHTML = enabled.map(pl => {
+    const sched = existingSched[pl.id] || {};
+    const activeDays = sched.days || [];
+    return `<div class="smm-sched-row">
+      <label>${pl.icon} ${pl.name}</label>
+      <div style="display:flex;gap:4px;">
+        ${SMM_DAYS.map(d => `<button type="button" class="smm-day-btn${activeDays.includes(d.id)?' active':''}" data-platform="${pl.id}" data-day="${d.id}" onclick="this.classList.toggle('active')">${d.l}</button>`).join('')}
+      </div>
+      <input class="agent-input" type="time" id="smm-sched-time-${pl.id}" value="${sched.time || '10:00'}" style="width:90px;font-size:11px;padding:4px 8px;" />
+    </div>`;
+  }).join('');
+}
+
+async function smmSaveProfile() {
+  try {
+    const platforms = {};
+    SMM_PLATFORMS.forEach(pl => {
+      const enabled = document.getElementById('smm-p-' + pl.id).checked;
+      const val = document.getElementById('smm-pc-' + pl.id).value.trim();
+      const extra = {};
+      if (pl.id === 'telegram') {
+        extra.bot_token = val;
+        const ch = document.getElementById('smm-pc-telegram-channel');
+        if (ch) extra.channel = ch.value.trim();
+      } else if (pl.id === 'discord') {
+        extra.webhook = val;
+      } else if (pl.id === 'twitter') {
+        extra.api_key = val;
+        extra.api_secret = (document.getElementById('smm-pc-twitter-secret')?.value || '').trim();
+        extra.access_token = (document.getElementById('smm-pc-twitter-access')?.value || '').trim();
+        extra.access_secret = (document.getElementById('smm-pc-twitter-access-secret')?.value || '').trim();
+      } else if (pl.id === 'linkedin') {
+        extra.access_token = val;
+        extra.person_urn = (document.getElementById('smm-pc-linkedin-urn')?.value || '').trim();
+      } else if (pl.id === 'facebook') {
+        extra.page_token = val;
+        extra.page_id = (document.getElementById('smm-pc-facebook-page-id')?.value || '').trim();
+      } else if (pl.id === 'instagram') {
+        extra.access_token = val;
+        extra.account_id = (document.getElementById('smm-pc-instagram-account-id')?.value || '').trim();
+      } else if (pl.id === 'threads') {
+        extra.access_token = val;
+        extra.user_id = (document.getElementById('smm-pc-threads-user-id')?.value || '').trim();
+      } else {
+        extra.username = val;
+      }
+      platforms[pl.id] = {enabled, ...extra};
+    });
+
+    const schedule = {};
+    SMM_PLATFORMS.filter(pl => platforms[pl.id].enabled).forEach(pl => {
+      const days = [...document.querySelectorAll(`.smm-day-btn.active[data-platform="${pl.id}"]`)].map(b => b.dataset.day);
+      const timeEl = document.getElementById('smm-sched-time-' + pl.id);
+      if (days.length) schedule[pl.id] = {days, time: timeEl ? timeEl.value : '10:00'};
+    });
+
+    const hashtags = document.getElementById('smm-w-hashtags').value.split(',').map(s => s.trim()).filter(Boolean);
+    const competitors = document.getElementById('smm-w-competitors').value.split(',').map(s => s.trim()).filter(Boolean);
+
+    const body = {
+      name: document.getElementById('smm-w-name').value.trim(),
+      niche: document.getElementById('smm-w-niche').value.trim(),
+      tone: document.getElementById('smm-w-tone').value,
+      language: document.getElementById('smm-w-lang').value,
+      visual_style: document.getElementById('smm-w-style').value,
+      hashtags, competitors, platforms, posting_schedule: schedule,
+    };
+
+    let res;
+    if (smmEditMode && smmEditId) {
+      res = await fetch('/api/smm/profiles/' + smmEditId, {
+        method: 'PUT', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)
+      });
+    } else {
+      res = await fetch('/api/smm/profiles', {
+        method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)
+      });
+    }
+    const data = await res.json();
+    toast(data.message);
+    if (data.ok) {
+      smmCloseWizard();
+      if (data.id) localStorage.setItem('smm_active_profile', data.id);
+      await smmLoadProfiles();
+    }
+  } catch (err) {
+    toast('Ошибка сохранения: ' + err.message);
+    console.error('smmSaveProfile error:', err);
+  }
+}
+
+function smmEditProfile() {
+  if (smmActiveProfile) smmShowWizard(smmActiveProfile);
+}
+
+async function smmDeleteProfile() {
+  if (!smmActiveProfile) return;
+  if (!confirm(`Удалить профиль "${smmActiveProfile.name}"?`)) return;
+  const res = await fetch('/api/smm/profiles/' + smmActiveProfile.id, {method: 'DELETE'});
+  const data = await res.json();
+  toast(data.message);
+  if (data.ok) {
+    localStorage.removeItem('smm_active_profile');
+    smmActiveProfile = null;
+    document.getElementById('smm-profile-select').value = '';
+    smmSelectProfile('');
+    await smmLoadProfiles();
+  }
+}
+
+// ─── SMM Trends ───
+async function smmScanTrends() {
+  if (!smmActiveProfile) return;
+  const btn = document.getElementById('smm-scan-btn');
+  btn.disabled = true;
+  btn.textContent = '⏳ Сканирование...';
+  document.getElementById('smm-trend-status').textContent = 'Запуск...';
+  try {
+    const res = await fetch('/api/smm/trends/scan', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        profile_id: smmActiveProfile.id,
+        model: document.getElementById('smm-trend-model').value,
+        custom_prompt: (document.getElementById('smm-custom-prompt').value || '').trim(),
+      })
+    });
+    const data = await res.json();
+    if (!data.ok) {
+      toast(data.message);
+      btn.disabled = false;
+      btn.textContent = '🔍 Сканировать тренды';
+      return;
+    }
+    // Start polling
+    if (smmTrendPoll) clearInterval(smmTrendPoll);
+    smmTrendPoll = setInterval(smmPollTrends, 3000);
+  } catch (err) {
+    toast('Ошибка сети: ' + err.message);
+    btn.disabled = false;
+    btn.textContent = '🔍 Сканировать тренды';
+  }
+}
+
+async function smmPollTrends() {
+  if (!smmActiveProfile) return;
+  const res = await fetch('/api/smm/trends/latest?profile_id=' + smmActiveProfile.id);
+  const data = await res.json();
+  document.getElementById('smm-trend-status').textContent = data.scan_message || '';
+  if (data.scan_status === 'done' || data.scan_status === 'error' || data.scan_status === 'idle') {
+    if (smmTrendPoll) { clearInterval(smmTrendPoll); smmTrendPoll = null; }
+    const btn = document.getElementById('smm-scan-btn');
+    btn.disabled = false;
+    btn.textContent = '🔍 Сканировать тренды';
+    smmLoadTrendHistory();
+    if (data.scan_status === 'error') {
+      toast('Ошибка: ' + (data.scan_message || 'неизвестная'));
+    }
+  }
+  if (data.report) smmRenderTrends(data.report);
+}
+
+async function smmLoadTrendHistory() {
+  if (!smmActiveProfile) return;
+  try {
+    const res = await fetch('/api/smm/trends/history?profile_id=' + smmActiveProfile.id);
+    const data = await res.json();
+    const sel = document.getElementById('smm-trend-history');
+    if (!sel || !data.scans) return;
+    sel.innerHTML = '<option value="">Последний скан</option>' +
+      data.scans.map(s => {
+        const d = new Date(s.timestamp);
+        const label = d.toLocaleString('ru-RU', {day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+        return `<option value="${s.id}">${label}</option>`;
+      }).join('');
+  } catch (err) {}
+}
+
+async function smmLoadTrendById(trendId) {
+  if (!trendId) { smmLoadTrends(); return; }
+  await _smmLoadPostedTopics();
+  try {
+    const res = await fetch('/api/smm/trends/by-id?id=' + trendId);
+    const data = await res.json();
+    if (data.ok && data.report) smmRenderTrends(data.report);
+  } catch (err) {}
+}
+
+async function smmLoadTrends() {
+  if (!smmActiveProfile) return;
+  await _smmLoadPostedTopics();
+  const res = await fetch('/api/smm/trends/latest?profile_id=' + smmActiveProfile.id);
+  const data = await res.json();
+  if (data.report) {
+    smmRenderTrends(data.report);
+  } else {
+    document.getElementById('smm-trends-list').innerHTML =
+      '<div style="color:var(--gray2);font-size:13px;text-align:center;padding:40px;">Нет отчётов. Нажмите «Сканировать тренды» для поиска актуальных тем.</div>';
+  }
+  document.getElementById('smm-trend-status').textContent = data.scan_message || '';
+  if (data.scan_status === 'running') {
+    document.getElementById('smm-scan-btn').disabled = true;
+    document.getElementById('smm-scan-btn').textContent = '⏳ Сканирование...';
+    if (!smmTrendPoll) smmTrendPoll = setInterval(smmPollTrends, 3000);
+  }
+}
+
+let smmCurrentTopics = [];
+let smmSelectedTopic = null;
+let smmGeneratedPosts = {};
+let smmGeneratedImage = null;
+let smmGeneratedImageVariants = {};
+
+let _smmPostedTopics = new Set();
+
+async function _smmLoadPostedTopics() {
+  if (!smmActiveProfile) return;
+  try {
+    const res = await fetch('/api/smm/queue?profile_id=' + smmActiveProfile.id);
+    const data = await res.json();
+    _smmPostedTopics = new Set();
+    for (const item of (data.items || [])) {
+      if (item.topic_title) _smmPostedTopics.add(item.topic_title.toLowerCase().trim());
+      // Also check source URLs in post texts
+      for (const text of Object.values(item.posts || {})) {
+        if (typeof text === 'string') {
+          const urls = text.match(/https?:\/\/[^\s\)\"\']+/g) || [];
+          urls.forEach(u => _smmPostedTopics.add(u.replace(/\/+$/, '').toLowerCase()));
+        }
+      }
+    }
+  } catch(e) {}
+}
+
+function _smmIsPosted(topic) {
+  if (_smmPostedTopics.has((topic.title || '').toLowerCase().trim())) return true;
+  for (const s of (topic.sources || [])) {
+    if (s.url && _smmPostedTopics.has(s.url.replace(/\/+$/, '').toLowerCase())) return true;
+  }
+  return false;
+}
+
+function smmRenderTrends(report) {
+  const el = document.getElementById('smm-trends-list');
+  const topics = report.topics || [];
+  smmCurrentTopics = topics;
+  if (!topics.length) {
+    el.innerHTML = '<div style="color:var(--gray2);font-size:13px;text-align:center;padding:40px;">Нет трендов в отчёте</div>';
+    return;
+  }
+  const timeStr = report.timestamp ? new Date(report.timestamp).toLocaleString('ru-RU') : '';
+  const dur = report.scan_duration_sec ? ` • ${report.scan_duration_sec}с` : '';
+  document.getElementById('smm-trend-status').textContent = `${timeStr}${dur} • ${report.search_results_count || 0} источников`;
+
+  el.innerHTML = topics.map((t, i) => {
+    const score = t.relevance || 0;
+    const scoreClass = score >= 70 ? 'high' : score >= 40 ? 'mid' : 'low';
+    const vir = t.virality || 'low';
+    const posted = _smmIsPosted(t);
+    const sources = (t.sources || []).map(s =>
+      `<a href="${s.url}" target="_blank" rel="noopener" style="color:var(--accent);font-size:11px;text-decoration:none;">${s.title || s.url}</a>`
+    ).join(' • ');
+    return `<div class="smm-trend-card" ${posted ? 'style="opacity:0.5;"' : ''}>
+      <div style="display:flex;gap:14px;align-items:flex-start;">
+        <div class="smm-score ${scoreClass}">${score}</div>
+        <div style="flex:1;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+            <span style="font-size:14px;font-weight:600;">${t.title || 'Без заголовка'} ${posted ? '<span style=\"background:rgba(74,222,128,0.2);color:var(--green);padding:1px 6px;border-radius:4px;font-size:9px;font-weight:600;\">✅ POSTED</span>' : ''}</span>
+            <div style="display:flex;gap:6px;align-items:center;">
+              ${!posted ? `<button class="btn btn-open" style="font-size:11px;padding:3px 10px;" onclick="smmGeneratePost(${i})">📝 Написать пост</button>` : `<span style="font-size:10px;color:var(--gray2);">уже в очереди</span>`}
+              <span class="smm-virality ${vir}">${vir === 'high' ? '🔥 high' : vir === 'medium' ? '📈 medium' : '📊 low'}</span>
+            </div>
+          </div>
+          <div style="color:var(--gray);font-size:12px;margin-bottom:6px;">${t.description || ''}</div>
+          <div style="color:var(--green);font-size:12px;margin-bottom:4px;">💡 ${t.suggested_angle || ''}${t.published_date ? ` <span style="color:var(--gray2);font-size:10px;">📅 ${t.published_date}</span>` : ''}</div>
+          ${sources ? `<div style="margin-top:4px;">${sources}</div>` : ''}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ─── SMM GitHub Trending ───
+let smmGithubRepos = [];
+
+async function smmGithubSearch() {
+  const btn = document.getElementById('smm-gh-btn');
+  const keywords = document.getElementById('smm-gh-keywords').value.trim();
+  if (!keywords) { toast('Введите ключевые слова'); return; }
+  btn.disabled = true; btn.textContent = '⏳ Поиск...';
+  document.getElementById('smm-gh-status').textContent = '';
+  try {
+    const res = await fetch('/api/smm/github-search', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        keywords,
+        period: document.getElementById('smm-gh-period').value,
+        min_stars: parseInt(document.getElementById('smm-gh-min-stars').value),
+        sort_by: document.getElementById('smm-gh-sort').value,
+        profile_id: smmActiveProfile?.id || '',
+      })
+    });
+    const data = await res.json();
+    if (data.ok) {
+      smmGithubRepos = data.repos || [];
+      smmRenderGithubResults(smmGithubRepos);
+      document.getElementById('smm-gh-status').textContent = `${data.count} repo`;
+    } else {
+      toast('Ошибка: ' + data.message);
+    }
+  } catch (err) {
+    toast('Ошибка: ' + err.message);
+  }
+  btn.disabled = false; btn.textContent = '🔍 Найти';
+}
+
+function smmRenderGithubResults(repos) {
+  const el = document.getElementById('smm-gh-results');
+  if (!repos.length) {
+    el.innerHTML = '<div style="color:var(--gray2);font-size:12px;text-align:center;padding:20px;">Ничего не найдено</div>';
+    return;
+  }
+  el.innerHTML = repos.map((r, i) => {
+    const velClass = r.stars_per_day >= 100 ? 'hot' : r.stars_per_day >= 20 ? 'warm' : 'cool';
+    const velText = r.stars_per_day >= 100 ? '🔥 HOT' : r.stars_per_day >= 20 ? '📈 Rising' : '📊 New';
+    const topics = (r.topics || []).map(t => `<span class="smm-gh-topic">${t}</span>`).join('');
+    const category = r.category || '📦 Other';
+    const posted = r.posted ? '<span style="background:rgba(74,222,128,0.2);color:var(--green);padding:1px 6px;border-radius:4px;font-size:9px;font-weight:600;">✅ POSTED</span>' : '';
+    const srcBadge = r.source === 'trending' ? '<span style="background:rgba(250,204,21,0.15);color:var(--yellow);padding:1px 4px;border-radius:3px;font-size:8px;">TRENDING</span>' : '';
+    return `<div class="smm-gh-card" ${r.posted ? 'style="opacity:0.6;"' : ''}>
+      <div style="display:flex;gap:12px;align-items:flex-start;">
+        <div style="text-align:center;">
+          <div class="smm-gh-stars">⭐${r.stars}</div>
+          <div style="font-size:10px;color:var(--accent);font-weight:600;">${r.stars_per_day}/day</div>
+        </div>
+        <div style="flex:1;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+            <div style="display:flex;gap:6px;align-items:center;">
+              <a href="${r.url}" target="_blank" rel="noopener" style="font-size:14px;font-weight:600;color:var(--accent);text-decoration:none;">${r.full_name}</a>
+              ${posted} ${srcBadge}
+            </div>
+            <div style="display:flex;gap:6px;align-items:center;">
+              <span style="font-size:10px;color:var(--gray2);">${category}</span>
+              ${!r.posted ? `<button class="btn btn-open" style="font-size:10px;padding:2px 8px;" onclick="smmGithubWritePost(${i})">📝 Пост</button>` : ''}
+              <span class="smm-gh-velocity ${velClass}">${velText}</span>
+            </div>
+          </div>
+          <div style="color:var(--gray);font-size:12px;margin-bottom:4px;">${r.description || ''}</div>
+          <div style="display:flex;gap:8px;align-items:center;font-size:11px;color:var(--gray2);">
+            <span>🍴 ${r.forks}</span>
+            ${r.language ? `<span>💻 ${r.language}</span>` : ''}
+            <span>📅 ${r.created}</span>
+          </div>
+          ${topics ? `<div style="margin-top:4px;">${topics}</div>` : ''}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function smmGithubWritePost(index) {
+  const repo = smmGithubRepos[index];
+  if (!repo) return;
+  // Convert repo to topic format and trigger post writer
+  const topic = {
+    title: repo.full_name,
+    description: `${repo.description} | ⭐${repo.stars} (${repo.stars_per_day}/day) 🍴${repo.forks} ${repo.language}`,
+    suggested_angle: `GitHub trending repo — ${repo.stars} stars in ${Math.max(1, Math.round(repo.stars / Math.max(repo.stars_per_day, 1)))} days`,
+    sources: [{title: repo.full_name, url: repo.url}],
+  };
+  // Inject into smmCurrentTopics and trigger post gen
+  smmCurrentTopics.push(topic);
+  smmGeneratePost(smmCurrentTopics.length - 1);
+}
+
+// ─── SMM Post Writer ───
+const SMM_PLATFORM_ICONS = {telegram:'💬',twitter:'🐦',linkedin:'💼',instagram:'📷',facebook:'📘',threads:'🧵',discord:'🎮'};
+const SMM_PLATFORM_MAX = {telegram:4096,twitter:280,linkedin:3000,instagram:2200,facebook:2000,threads:500,discord:2000};
+
+function smmGeneratePost(topicIndex) {
+  if (!smmActiveProfile || !smmCurrentTopics[topicIndex]) return;
+  smmSelectedTopic = smmCurrentTopics[topicIndex];
+  smmGeneratedPosts = {};
+  smmGeneratedImage = null;
+  const panel = document.getElementById('smm-post-gen');
+  panel.style.display = 'block';
+  document.getElementById('smm-post-results').style.display = 'none';
+  document.getElementById('smm-gen-loading').style.display = 'none';
+  document.getElementById('smm-img-preview').style.display = 'none';
+  // Show topic info
+  document.getElementById('smm-post-topic').innerHTML =
+    `<strong>${smmSelectedTopic.title}</strong><br><span style="color:var(--gray2);font-size:12px;">${smmSelectedTopic.suggested_angle || ''}</span>`;
+  // Show platform checkboxes
+  const enabledPlatforms = SMM_PLATFORMS.filter(p => smmActiveProfile.platforms?.[p.id]?.enabled);
+  document.getElementById('smm-post-platforms').innerHTML = enabledPlatforms.map(p =>
+    `<label class="smm-platform-check checked"><input type="checkbox" checked data-platform="${p.id}" /> ${SMM_PLATFORM_ICONS[p.id]||''} ${p.name}</label>`
+  ).join('');
+  // Scroll to panel
+  panel.scrollIntoView({behavior: 'smooth', block: 'start'});
+}
+
+async function smmRunGenerate() {
+  if (!smmActiveProfile || !smmSelectedTopic) return;
+  const checks = document.querySelectorAll('#smm-post-platforms input[type=checkbox]:checked');
+  const platforms = [...checks].map(c => c.dataset.platform);
+  if (!platforms.length) { toast('Выберите хотя бы одну платформу'); return; }
+
+  const btn = document.getElementById('smm-gen-btn');
+  btn.disabled = true; btn.textContent = '⏳ Генерация...';
+  document.getElementById('smm-gen-loading').style.display = 'block';
+  document.getElementById('smm-post-results').style.display = 'none';
+
+  try {
+    const res = await fetch('/api/smm/generate', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        profile_id: smmActiveProfile.id,
+        topic: smmSelectedTopic,
+        platforms,
+        model: document.getElementById('smm-post-model').value,
+        custom_context: (document.getElementById('smm-post-context').value || '').trim(),
+      })
+    });
+    const data = await res.json();
+    if (data.ok && data.posts) {
+      smmGeneratedPosts = data.posts;
+      smmRenderGeneratedPosts(data.posts);
+    } else {
+      toast('Ошибка: ' + (data.message || 'не удалось сгенерировать'));
+    }
+  } catch (err) {
+    toast('Ошибка: ' + err.message);
+  }
+  btn.disabled = false; btn.textContent = '✨ Сгенерировать';
+  document.getElementById('smm-gen-loading').style.display = 'none';
+}
+
+function smmRenderGeneratedPosts(posts) {
+  const container = document.getElementById('smm-post-cards');
+  container.innerHTML = Object.entries(posts).map(([platform, text]) => {
+    const icon = SMM_PLATFORM_ICONS[platform] || '📱';
+    const maxLen = SMM_PLATFORM_MAX[platform] || 2000;
+    const len = (text || '').length;
+    const overClass = len > maxLen ? 'color:var(--red)' : 'color:var(--gray2)';
+    return `<div class="smm-post-card">
+      <div class="platform-header">
+        <span class="platform-name">${icon} ${platform}</span>
+        <div style="display:flex;gap:6px;align-items:center;">
+          <span class="char-count" style="${overClass}" id="smm-cc-${platform}">${len}/${maxLen}</span>
+          <button class="copy-btn" onclick="smmCopyPost('${platform}')">📋 Copy</button>
+        </div>
+      </div>
+      <textarea id="smm-post-${platform}" oninput="document.getElementById('smm-cc-${platform}').textContent=this.value.length+'/${maxLen}';document.getElementById('smm-cc-${platform}').style.color=this.value.length>${maxLen}?'var(--red)':'var(--gray2)'">${text || ''}</textarea>
+    </div>`;
+  }).join('');
+  document.getElementById('smm-post-results').style.display = 'block';
+}
+
+function smmCopyPost(platform) {
+  const ta = document.getElementById('smm-post-' + platform);
+  if (ta) {
+    navigator.clipboard.writeText(ta.value).then(() => toast('Скопировано!')).catch(() => {
+      ta.select(); document.execCommand('copy'); toast('Скопировано!');
+    });
+  }
+}
+
+async function smmGenerateImage() {
+  if (!smmSelectedTopic) return;
+  const btn = document.getElementById('smm-img-btn');
+  btn.disabled = true; btn.textContent = '⏳ ComfyUI запускается...';
+  const style = smmActiveProfile?.visual_style || 'tech-dark';
+  // Use custom prompt if provided, otherwise auto-generate from topic
+  const customImgPrompt = document.getElementById('smm-img-prompt').value.trim();
+  let prompt;
+  if (customImgPrompt) {
+    prompt = customImgPrompt + '. No text, no letters, no words, no typography on the image.';
+  } else {
+    // Use LLM to generate cinematic image prompt from post context
+    btn.textContent = '⏳ AI пишет промпт...';
+    try {
+      const genRes = await fetch('/api/smm/generate-image-prompt', {
+        method: 'POST', headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          title: smmSelectedTopic.title || '',
+          description: smmSelectedTopic.description || '',
+          angle: smmSelectedTopic.suggested_angle || '',
+          style: style,
+        })
+      });
+      const genData = await genRes.json();
+      if (genData.ok && genData.prompt) {
+        prompt = genData.prompt;
+        document.getElementById('smm-img-prompt').value = prompt;
+      } else {
+        prompt = `Cinematic tech scene related to: ${(smmSelectedTopic.title || '').substring(0, 80)}. Style: ${style}, cyberpunk, neon lighting, dramatic composition, 8k. No text, no letters, no words.`;
+      }
+    } catch (err) {
+      prompt = `Cinematic tech scene related to: ${(smmSelectedTopic.title || '').substring(0, 80)}. Style: ${style}, cyberpunk, neon lighting, dramatic composition, 8k. No text, no letters, no words.`;
+    }
+  }
+  const platforms = Object.keys(smmGeneratedPosts);
+  try {
+    const res = await fetch('/api/smm/generate-image', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({prompt, platforms, prefix: 'smm_post'})
+    });
+    const data = await res.json();
+    if (data.ok) {
+      smmGeneratedImage = data.original?.filename || null;
+      smmGeneratedImageVariants = data.variants || {};
+      // Show original + variants
+      let html = `<div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start;">`;
+      if (data.original) {
+        html += `<div style="text-align:center;"><img src="${data.original.url}" style="max-width:200px;border-radius:8px;border:1px solid var(--bg3);" /><div style="font-size:10px;color:var(--gray2);margin-top:4px;">Original ${data.original.size}</div></div>`;
+      }
+      for (const [plat, v] of Object.entries(data.variants || {})) {
+        html += `<div style="text-align:center;"><img src="${v.url}" style="max-height:150px;border-radius:6px;border:1px solid var(--bg3);" /><div style="font-size:10px;color:var(--gray2);margin-top:4px;">${SMM_PLATFORM_ICONS[plat]||''} ${plat} ${v.size}</div></div>`;
+      }
+      html += `</div>`;
+      document.getElementById('smm-img-preview').innerHTML = html;
+      document.getElementById('smm-img-preview').style.display = 'block';
+      toast('Изображение создано и масштабировано');
+    } else {
+      toast('Ошибка: ' + data.message);
+    }
+  } catch (err) {
+    toast('Ошибка: ' + err.message);
+  }
+  btn.disabled = false; btn.textContent = '🖼 Генерация картинки';
+}
+
+async function smmAddToQueue() {
+  if (!smmActiveProfile || !smmSelectedTopic) return;
+  // Collect edited posts from textareas
+  const posts = {};
+  for (const [p, _] of Object.entries(smmGeneratedPosts)) {
+    const ta = document.getElementById('smm-post-' + p);
+    if (ta) posts[p] = ta.value;
+  }
+  try {
+    const res = await fetch('/api/smm/queue', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        profile_id: smmActiveProfile.id,
+        topic_title: smmSelectedTopic.title,
+        posts,
+        image: smmGeneratedImage,
+        image_variants: smmGeneratedImageVariants,
+      })
+    });
+    const data = await res.json();
+    toast(data.message);
+    if (data.ok) {
+      document.getElementById('smm-post-gen').style.display = 'none';
+      smmLoadQueue();
+    }
+  } catch (err) {
+    toast('Ошибка: ' + err.message);
+  }
+}
+
+// ─── SMM Queue ───
+async function smmLoadQueue() {
+  if (!smmActiveProfile) return;
+  try {
+    const res = await fetch('/api/smm/queue?profile_id=' + smmActiveProfile.id);
+    const data = await res.json();
+    smmRenderQueue(data.items || []);
+  } catch (err) {}
+}
+
+function smmRenderQueue(items) {
+  const el = document.getElementById('smm-queue-list');
+  const countEl = document.getElementById('smm-queue-count');
+  countEl.textContent = items.length ? `${items.length} элементов` : '';
+  if (!items.length) {
+    el.innerHTML = '<div style="color:var(--gray2);font-size:13px;text-align:center;padding:20px;">Очередь пуста</div>';
+    return;
+  }
+  el.innerHTML = items.map(item => {
+    const pr = item.publish_results || {};
+    const platforms = Object.keys(item.posts || {}).map(p => {
+      const icon = SMM_PLATFORM_ICONS[p] || p;
+      if (pr[p]) return pr[p].ok ? `<span style="color:var(--green);" title="${p}: OK">${icon}</span>` : `<span style="color:var(--red);" title="${p}: ${pr[p].message||'fail'}">${icon}</span>`;
+      return icon;
+    }).join(' ');
+    const statusClass = item.status || 'draft';
+    const statusLabels = {draft:'Черновик',approved:'Одобрен',scheduled:'Запланирован',published:'Опубликован',partial:'Частично'};
+    const hasImage = item.image ? `<img src="/api/smm/image/${item.image}" style="width:40px;height:40px;border-radius:4px;object-fit:cover;" />` : '';
+    const created = item.created ? new Date(item.created).toLocaleString('ru-RU') : '';
+    return `<div class="smm-queue-item">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div style="display:flex;gap:10px;align-items:center;">
+          ${hasImage}
+          <div>
+            <div style="font-size:13px;font-weight:600;">${item.topic_title || 'Без темы'}</div>
+            <div style="font-size:11px;color:var(--gray2);">${platforms} • ${created}</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:6px;align-items:center;">
+          <span class="smm-queue-status ${statusClass}">${statusLabels[statusClass] || statusClass}</span>
+          ${item.status === 'draft' ? `<button class="btn btn-start" style="font-size:10px;padding:2px 8px;" onclick="smmApproveQueue('${item.id}')">✓ Одобрить</button>` : ''}
+          ${item.status === 'approved' ? `<button class="btn btn-open" style="font-size:10px;padding:2px 6px;" onclick="smmUnapproveQueue('${item.id}')">↩ Черновик</button>` : ''}
+          ${item.status === 'approved' && !item.scheduled_time ? `<button class="btn-run" style="font-size:10px;padding:2px 10px;" onclick="smmPublishQueue('${item.id}')">🚀 Сейчас</button><button class="btn btn-open" style="font-size:10px;padding:2px 6px;" onclick="document.getElementById('smm-q-plat-${item.id}').style.display=document.getElementById('smm-q-plat-${item.id}').style.display==='none'?'flex':'none'">⚙</button>` : ''}
+          ${item.status === 'approved' ? `<input type="date" id="smm-sched-date-${item.id}" value="${item.scheduled_time ? item.scheduled_time.slice(0,10) : ''}" style="font-size:10px;padding:2px 4px;background:var(--bg3);border:1px solid var(--bg3);border-radius:4px;color:var(--white);width:110px;" /><input type="time" id="smm-sched-time-${item.id}" value="${item.scheduled_time ? item.scheduled_time.slice(11,16) : '10:00'}" style="font-size:10px;padding:2px 4px;background:var(--bg3);border:1px solid var(--bg3);border-radius:4px;color:var(--white);width:70px;" /><button class="btn btn-open" style="font-size:9px;padding:2px 6px;" onclick="smmSetSchedule('${item.id}')">⏰</button>` : ''}
+          ${item.status === 'approved' && item.scheduled_time ? `<span style="font-size:10px;color:var(--accent);">⏰ ${new Date(item.scheduled_time).toLocaleString('ru-RU')}</span>` : ''}
+          ${item.status === 'published' ? `<span style="font-size:10px;color:var(--green);">✓ Опубликовано</span>` : ''}
+          ${item.status === 'partial' ? `<button class="btn-run" style="font-size:10px;padding:2px 10px;" onclick="smmRetryFailed('${item.id}')">🔄 Retry failed</button>` : ''}
+          <button class="btn btn-open" style="font-size:10px;padding:2px 6px;" onclick="smmDuplicateQueue('${item.id}')">📋</button>
+          <button class="btn-clean" style="font-size:10px;padding:2px 6px;" onclick="smmDeleteQueue('${item.id}')">✕</button>
+        </div>
+      </div>
+      <div style="display:none;margin-top:6px;gap:6px;flex-wrap:wrap;align-items:center;" id="smm-q-plat-${item.id}">
+        ${Object.keys(item.posts || {}).map(p => `<label style="font-size:10px;color:var(--gray);display:flex;align-items:center;gap:3px;cursor:pointer;"><input type="checkbox" checked data-qid="${item.id}" data-platform="${p}" style="width:12px;height:12px;" />${SMM_PLATFORM_ICONS[p]||''} ${p}</label>`).join('')}
+      </div>
+      <div style="display:none;margin-top:8px;" id="smm-q-detail-${item.id}">
+        ${item.image ? `<div style="margin-bottom:10px;padding:8px;background:var(--bg2);border-radius:8px;">
+          <div style="font-size:11px;color:var(--gray2);margin-bottom:6px;">🖼 Сгенерированные изображения:</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start;">
+            <div style="text-align:center;">
+              <img src="/api/smm/image/${item.image}" style="max-width:180px;border-radius:6px;border:1px solid var(--bg3);" />
+              <div style="font-size:10px;color:var(--gray2);margin-top:3px;">Оригинал</div>
+            </div>
+            ${Object.entries(item.image_variants || {}).map(([p, v]) =>
+              `<div style="text-align:center;">
+                <img src="${v.url}" style="max-height:120px;border-radius:6px;border:1px solid var(--bg3);" onerror="this.parentElement.style.display='none'" />
+                <div style="font-size:10px;color:var(--gray2);margin-top:3px;">${SMM_PLATFORM_ICONS[p]||''} ${p} ${v.size||''}</div>
+              </div>`
+            ).join('')}
+          </div>
+        </div>` : ''}
+        ${Object.entries(item.posts || {}).map(([p, text]) =>
+          `<div style="margin-top:6px;"><span style="font-size:11px;color:var(--accent);">${SMM_PLATFORM_ICONS[p]||''} ${p}</span>
+          <div style="background:var(--bg2);border-radius:6px;padding:8px;font-size:12px;color:var(--gray);margin-top:4px;white-space:pre-wrap;">${text}</div></div>`
+        ).join('')}
+      </div>
+      <div style="display:flex;gap:4px;margin-top:6px;">
+        <button class="btn btn-open" style="font-size:10px;padding:2px 8px;" onclick="const d=document.getElementById('smm-q-detail-${item.id}');d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'▶ Показать':'▼ Скрыть'">▶ Показать</button>
+        ${item.status !== 'published' ? `<button class="btn btn-open" style="font-size:10px;padding:2px 8px;" onclick="smmEditQueueItem('${item.id}')">✏️ Редактировать</button>` : ''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+async function smmPublishQueue(id) {
+  if (!smmActiveProfile) return;
+  // Check if platform selection checkboxes are visible
+  const platDiv = document.getElementById('smm-q-plat-' + id);
+  let platforms;
+  if (platDiv && platDiv.style.display !== 'none') {
+    platforms = [...platDiv.querySelectorAll('input[type=checkbox]:checked')].map(cb => cb.dataset.platform);
+  } else {
+    platforms = Object.keys(smmActiveProfile.platforms || {}).filter(p => {
+      const pc = smmActiveProfile.platforms[p];
+      return pc.enabled && pc.connected;
+    });
+  }
+  if (!platforms.length) { toast('Нет выбранных платформ для публикации.'); return; }
+
+  // Show preview modal
+  const qRes = await fetch('/api/smm/queue?profile_id=' + smmActiveProfile.id);
+  const qData = await qRes.json();
+  const item = (qData.items || []).find(i => i.id === id);
+  if (!item) { toast('Не найден'); return; }
+  const previewHtml = platforms.map(p => {
+    const icon = SMM_PLATFORM_ICONS[p] || p;
+    const text = item.posts?.[p] || '';
+    const maxLen = SMM_PLATFORM_MAX[p] || 2000;
+    return `<div style="margin-bottom:10px;background:var(--bg);border-radius:8px;padding:10px;">
+      <div style="font-size:12px;font-weight:600;margin-bottom:4px;">${icon} ${p} <span style="color:var(--gray2);font-weight:400;">${text.length}/${maxLen}</span></div>
+      <div style="font-size:11px;color:var(--gray);white-space:pre-wrap;max-height:120px;overflow-y:auto;">${text}</div>
+    </div>`;
+  }).join('');
+  const imgHtml = item.image ? `<div style="margin-bottom:10px;"><img src="/api/smm/image/${item.image}" style="max-width:200px;border-radius:8px;" /></div>` : '';
+  document.getElementById('smm-preview-content').innerHTML = imgHtml + previewHtml;
+  document.getElementById('smm-preview-confirm').onclick = () => { document.getElementById('smm-preview-overlay').style.display='none'; smmDoPublish(id, platforms); };
+  document.getElementById('smm-preview-overlay').style.display = 'flex';
+  return; // Don't publish yet — wait for confirm
+}
+
+async function smmDoPublish(id, platforms) {
+  try {
+    const res = await fetch('/api/smm/publish', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({queue_id: id, profile_id: smmActiveProfile.id, platforms})
+    });
+    const data = await res.json();
+    if (data.results) {
+      const msgs = Object.entries(data.results).map(([p, r]) =>
+        `${SMM_PLATFORM_ICONS[p]||p}: ${r.ok ? '✓' : '✗'} ${r.message}`
+      ).join('\n');
+      toast(msgs);
+    }
+    smmLoadQueue();
+  } catch (err) {
+    toast('Ошибка: ' + err.message);
+  }
+}
+
+async function smmSetSchedule(id) {
+  const dateEl = document.getElementById('smm-sched-date-' + id);
+  const timeEl = document.getElementById('smm-sched-time-' + id);
+  if (!dateEl || !dateEl.value) { toast('Выберите дату'); return; }
+  const dateStr = dateEl.value;
+  const timeStr = timeEl?.value || '10:00';
+  const scheduledTime = `${dateStr}T${timeStr}:00`;
+  try {
+    await fetch('/api/smm/queue/' + id, {
+      method: 'PUT', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({scheduled_time: scheduledTime})
+    });
+    toast('Запланировано на ' + new Date(scheduledTime).toLocaleString('ru-RU'));
+    smmLoadQueue();
+    smmLoadCalendar();
+  } catch (err) { toast('Ошибка: ' + err.message); }
+}
+
+function smmEditQueueItem(id) {
+  // Find item data from rendered queue
+  fetch('/api/smm/queue?profile_id=' + (smmActiveProfile?.id || '')).then(r => r.json()).then(data => {
+    const item = (data.items || []).find(i => i.id === id);
+    if (!item) { toast('Элемент не найден'); return; }
+    const detail = document.getElementById('smm-q-detail-' + id);
+    if (!detail) return;
+    detail.style.display = 'block';
+    // Replace readonly content with editable textareas
+    const postsHtml = Object.entries(item.posts || {}).map(([p, text]) => {
+      const maxLen = SMM_PLATFORM_MAX[p] || 2000;
+      return `<div style="margin-top:6px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:11px;color:var(--accent);">${SMM_PLATFORM_ICONS[p]||''} ${p}</span>
+          <span style="font-size:10px;color:var(--gray2);" id="smm-qe-cc-${id}-${p}">${(text||'').length}/${maxLen}</span>
+        </div>
+        <textarea id="smm-qe-${id}-${p}" style="width:100%;min-height:100px;background:var(--bg2);border:1px solid var(--bg3);border-radius:6px;color:var(--white);font-size:12px;padding:8px;resize:vertical;font-family:inherit;margin-top:4px;"
+          oninput="document.getElementById('smm-qe-cc-${id}-${p}').textContent=this.value.length+'/${maxLen}'">${text||''}</textarea>
+        <button class="btn btn-open" style="font-size:9px;padding:2px 6px;margin-top:2px;" onclick="smmRegenPlatformPost('${id}','${p}',event)">🔄 Перегенерировать</button>
+      </div>`;
+    }).join('');
+    detail.innerHTML = postsHtml +
+      `<div style="margin-top:8px;display:flex;gap:6px;">
+        <button class="btn-run" style="font-size:11px;padding:5px 14px;" onclick="smmSaveQueueEdit('${id}', ${JSON.stringify(Object.keys(item.posts||{}))})">💾 Сохранить</button>
+        <button class="btn btn-open" style="font-size:11px;padding:5px 10px;" onclick="smmLoadQueue()">Отмена</button>
+      </div>`;
+  });
+}
+
+async function smmRegenPlatformPost(queueId, platform, ev) {
+  const btn = ev?.target || document.activeElement;
+  btn.disabled = true; btn.textContent = '⏳...';
+  try {
+    const res = await fetch('/api/smm/regen-post', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        queue_id: queueId,
+        platform: platform,
+        profile_id: smmActiveProfile?.id || '',
+        model: document.getElementById('smm-post-model')?.value || 'qwen3.5:9b',
+      })
+    });
+    const data = await res.json();
+    if (data.ok && data.text) {
+      const ta = document.getElementById('smm-qe-' + queueId + '-' + platform);
+      if (ta) ta.value = data.text;
+      toast('Перегенерировано!');
+    } else {
+      toast('Ошибка: ' + (data.message || 'не удалось'));
+    }
+  } catch (err) {
+    toast('Ошибка: ' + err.message);
+  }
+  btn.disabled = false; btn.textContent = '🔄 Перегенерировать';
+}
+
+async function smmSaveQueueEdit(id, platforms) {
+  const posts = {};
+  for (const p of platforms) {
+    const ta = document.getElementById('smm-qe-' + id + '-' + p);
+    if (ta) posts[p] = ta.value;
+  }
+  try {
+    const res = await fetch('/api/smm/queue/' + id, {
+      method: 'PUT', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({posts})
+    });
+    const data = await res.json();
+    toast(data.ok ? 'Посты обновлены' : data.message);
+    smmLoadQueue();
+  } catch (err) {
+    toast('Ошибка: ' + err.message);
+  }
+}
+
+async function smmDuplicateQueue(id) {
+  try {
+    const res = await fetch('/api/smm/queue?profile_id=' + (smmActiveProfile?.id || ''));
+    const data = await res.json();
+    const item = (data.items || []).find(i => i.id === id);
+    if (!item) { toast('Элемент не найден'); return; }
+    const dupRes = await fetch('/api/smm/queue', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        profile_id: item.profile_id,
+        topic_title: item.topic_title + ' (копия)',
+        posts: item.posts,
+        image: item.image,
+        image_variants: item.image_variants,
+      })
+    });
+    const dupData = await dupRes.json();
+    toast(dupData.ok ? 'Копия создана в черновиках' : dupData.message);
+    smmLoadQueue();
+  } catch (err) { toast('Ошибка: ' + err.message); }
+}
+
+async function smmRetryFailed(id) {
+  if (!smmActiveProfile) return;
+  // Get queue item to find failed platforms
+  try {
+    const res = await fetch('/api/smm/queue?profile_id=' + smmActiveProfile.id);
+    const data = await res.json();
+    const item = (data.items || []).find(i => i.id === id);
+    if (!item) { toast('Элемент не найден'); return; }
+    const failedPlatforms = Object.entries(item.publish_results || {})
+      .filter(([p, r]) => !r.ok)
+      .map(([p]) => p);
+    if (!failedPlatforms.length) { toast('Нет failed платформ'); return; }
+    toast(`Retry: ${failedPlatforms.join(', ')}...`);
+    const pubRes = await fetch('/api/smm/publish', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({queue_id: id, profile_id: smmActiveProfile.id, platforms: failedPlatforms})
+    });
+    const pubData = await pubRes.json();
+    if (pubData.results) {
+      const msgs = Object.entries(pubData.results).map(([p, r]) =>
+        `${SMM_PLATFORM_ICONS[p]||p}: ${r.ok ? '✓' : '✗'} ${r.message}`).join('\n');
+      toast(msgs);
+    }
+    smmLoadQueue();
+  } catch (err) { toast('Ошибка: ' + err.message); }
+}
+
+async function smmUnapproveQueue(id) {
+  const res = await fetch('/api/smm/queue/' + id, {
+    method: 'PUT', headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({status: 'draft', scheduled_time: null})
+  });
+  const data = await res.json();
+  toast('Возвращено в черновики');
+  smmLoadQueue();
+}
+
+async function smmApproveQueue(id) {
+  const res = await fetch('/api/smm/queue/' + id, {
+    method: 'PUT', headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({status: 'approved'})
+  });
+  const data = await res.json();
+  toast(data.message);
+  smmLoadQueue();
+}
+
+async function smmDeleteQueue(id) {
+  if (!confirm('Удалить из очереди?')) return;
+  const res = await fetch('/api/smm/queue/' + id, {method: 'DELETE'});
+  const data = await res.json();
+  toast(data.message);
+  smmLoadQueue();
+}
+
+// ─── SMM Batch Generation ───
+let smmBatchPoll = null;
+
+async function smmBatchGenerate() {
+  if (!smmActiveProfile) return;
+  const days = parseInt(document.getElementById('smm-batch-days').value);
+  const platforms = Object.keys(smmActiveProfile.platforms || {}).filter(p =>
+    smmActiveProfile.platforms[p].enabled);
+  if (!platforms.length) { toast('Нет включённых платформ'); return; }
+  if (!confirm(`Сгенерировать ${days} постов на ${days} дней вперёд?`)) return;
+
+  const btn = document.getElementById('smm-batch-btn');
+  btn.disabled = true; btn.textContent = '⏳ Генерация...';
+  try {
+    const res = await fetch('/api/smm/batch-generate', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        profile_id: smmActiveProfile.id, days, platforms,
+        model: document.getElementById('smm-trend-model').value,
+        generate_images: true,
+      })
+    });
+    const data = await res.json();
+    if (data.ok) {
+      smmBatchPoll = setInterval(smmPollBatch, 3000);
+    } else {
+      toast(data.message); btn.disabled = false; btn.textContent = '📦 Batch';
+    }
+  } catch (err) {
+    toast('Ошибка: ' + err.message); btn.disabled = false; btn.textContent = '📦 Batch';
+  }
+}
+
+async function smmPollBatch() {
+  try {
+    const res = await fetch('/api/smm/batch-status');
+    const data = await res.json();
+    const btn = document.getElementById('smm-batch-btn');
+    btn.textContent = `⏳ ${data.progress || ''} ${data.message || ''}`.substring(0, 30);
+    if (data.status === 'done' || data.status === 'error' || data.status === 'idle') {
+      clearInterval(smmBatchPoll); smmBatchPoll = null;
+      btn.disabled = false; btn.textContent = '📦 Batch';
+      toast(data.message || 'Batch завершён');
+      smmLoadQueue();
+      smmLoadCalendar();
+    }
+  } catch (err) {}
+}
+
+// ─── SMM Calendar ───
+let smmCalendarWeekOffset = 0;
+
+function smmCalendarNav(dir) {
+  smmCalendarWeekOffset += dir;
+  smmLoadCalendar();
+}
+
+async function smmLoadCalendar() {
+  if (!smmActiveProfile) return;
+  const today = new Date();
+  const weekStart = new Date(today);
+  weekStart.setDate(today.getDate() - today.getDay() + 1 + smmCalendarWeekOffset * 7); // Monday
+  const weekEnd = new Date(weekStart);
+  weekEnd.setDate(weekStart.getDate() + 6);
+  const from = weekStart.toISOString().slice(0, 10);
+  const to = weekEnd.toISOString().slice(0, 10);
+  document.getElementById('smm-cal-range').textContent =
+    `${weekStart.toLocaleDateString('ru-RU', {day:'numeric',month:'short'})} — ${weekEnd.toLocaleDateString('ru-RU', {day:'numeric',month:'short',year:'numeric'})}`;
+
+  try {
+    const res = await fetch(`/api/smm/calendar?profile_id=${smmActiveProfile.id}&date_from=${from}&date_to=${to}`);
+    const data = await res.json();
+    if (data.ok) smmRenderCalendar(weekStart, data.days);
+  } catch (err) {}
+}
+
+function smmRenderCalendar(weekStart, days) {
+  const el = document.getElementById('smm-calendar');
+  const dayNames = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+  const todayStr = new Date().toISOString().slice(0, 10);
+  let html = '';
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(weekStart);
+    d.setDate(weekStart.getDate() + i);
+    const key = d.toISOString().slice(0, 10);
+    const isToday = key === todayStr;
+    const posts = days[key] || [];
+    const statusColors = {published: 'var(--green)', approved: 'var(--yellow)', draft: 'var(--gray2)'};
+    html += `<div class="smm-cal-day${isToday ? ' today' : ''}">
+      <div class="day-name">${dayNames[i]}</div>
+      <div class="day-num">${d.getDate()}</div>
+      ${posts.map(p => {
+        const time = p.scheduled_time ? p.scheduled_time.slice(11, 16) : '';
+        const icons = (p.platforms || []).map(pl => SMM_PLATFORM_ICONS[pl] || '').join('');
+        return `<div class="smm-cal-post ${p.status}" title="${p.topic_title}">
+          ${time ? `<span style="color:var(--accent);font-size:9px;">${time}</span> ` : ''}${icons}
+          <div style="color:var(--white);font-size:9px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${p.topic_title || ''}</div>
+        </div>`;
+      }).join('')}
+      ${!posts.length ? '<div style="color:var(--bg3);font-size:9px;text-align:center;margin-top:10px;">—</div>' : ''}
+    </div>`;
+  }
+  el.innerHTML = html;
+}
+
+// ─── SMM Analytics ───
+async function smmLoadAnalytics() {
+  if (!smmActiveProfile) return;
+  const el = document.getElementById('smm-analytics');
+  try {
+    const res = await fetch('/api/smm/analytics?profile_id=' + smmActiveProfile.id);
+    const data = await res.json();
+    if (!data.ok || !data.total_posts) {
+      el.innerHTML = '<div style="color:var(--gray2);font-size:12px;text-align:center;padding:15px;">Нет данных. Аналитика собирается автоматически каждый час.</div>';
+      return;
+    }
+    // Summary bar
+    let html = `<div style="display:flex;gap:16px;margin-bottom:12px;flex-wrap:wrap;">
+      <div class="smm-profile-stat"><div class="label">Посты</div><div class="value">${data.total_posts}</div></div>
+      <div class="smm-profile-stat"><div class="label">Лайки</div><div class="value" style="color:var(--red);">❤️ ${data.total_likes}</div></div>
+      <div class="smm-profile-stat"><div class="label">Комменты</div><div class="value" style="color:var(--accent);">💬 ${data.total_comments}</div></div>
+      <div class="smm-profile-stat"><div class="label">Просмотры</div><div class="value" style="color:var(--green);">👁 ${data.total_views}</div></div>
+      <div class="smm-profile-stat"><div class="label">Шеры</div><div class="value" style="color:var(--accent2);">🔄 ${data.total_shares}</div></div>
+    </div>`;
+
+    // By platform
+    const platEntries = Object.entries(data.by_platform || {});
+    if (platEntries.length) {
+      html += `<div style="margin-bottom:12px;font-size:12px;">`;
+      html += platEntries.map(([p, m]) =>
+        `<span style="margin-right:12px;">${SMM_PLATFORM_ICONS[p]||p} ❤️${m.likes} 💬${m.comments} 👁${m.views}</span>`
+      ).join('');
+      html += `</div>`;
+    }
+
+    // Top posts
+    const topPosts = data.top_posts || [];
+    if (topPosts.length) {
+      html += `<div style="font-size:12px;color:var(--gray);margin-bottom:6px;font-weight:600;">Топ посты:</div>`;
+      html += topPosts.map((p, i) =>
+        `<div style="font-size:11px;padding:3px 0;border-bottom:1px solid var(--bg3);">
+          <span style="color:var(--accent);">#${i+1}</span> ${p.topic} — <span style="color:var(--red);">❤️${p.likes}</span> <span style="color:var(--accent);">💬${p.comments}</span> <span style="color:var(--green);">👁${p.views}</span>
+        </div>`
+      ).join('');
+    }
+    el.innerHTML = html;
+  } catch (err) {
+    el.innerHTML = '<div style="color:var(--gray2);font-size:11px;">Ошибка загрузки аналитики</div>';
+  }
+}
+
+// ─── SMM Events ───
+async function smmLoadEvents() {
+  if (!smmActiveProfile) return;
+  try {
+    const res = await fetch('/api/smm/events?profile_id=' + smmActiveProfile.id + '&limit=15');
+    const data = await res.json();
+    const el = document.getElementById('smm-events');
+    if (!data.events?.length) { el.innerHTML = '<span style="color:var(--gray2);">Нет событий</span>'; return; }
+    el.innerHTML = data.events.map(e => {
+      const time = e.timestamp ? new Date(e.timestamp).toLocaleString('ru-RU', {day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}) : '';
+      const status = e.fail === 0 ? '🟢' : e.ok === 0 ? '🔴' : '🟡';
+      const failInfo = e.failed?.length ? ` (❌ ${e.failed.map(p => SMM_PLATFORM_ICONS[p]||p).join('')})` : '';
+      return `<div style="padding:3px 0;border-bottom:1px solid var(--bg3);">${status} ${time} — ${e.topic || '?'} — ${e.ok}/${e.total} ок${failInfo}</div>`;
+    }).join('');
+  } catch (err) {}
+}
+
+// ─── SMM Storage ───
+async function smmLoadStorage() {
+  try {
+    const res = await fetch('/api/smm/storage');
+    const data = await res.json();
+    if (data.ok) {
+      document.getElementById('smm-storage-info').innerHTML =
+        `<span>🖼 ${data.images.count} картинок (${data.images.size_mb} MB)</span>` +
+        `<span>📊 ${data.trends.count} отчётов (${data.trends.size_mb} MB)</span>` +
+        `<span>📋 ${data.queue.count} в очереди</span>` +
+        `<span style="color:var(--accent);">Всего: ${data.total_mb} MB</span>`;
+    }
+  } catch (err) {}
+}
+
+async function smmCleanup(target) {
+  const labels = {images: 'картинки', trends: 'отчёты трендов', all: 'все файлы SMM'};
+  if (!confirm(`Удалить ${labels[target] || target}? Это действие необратимо.`)) return;
+  try {
+    const res = await fetch('/api/smm/cleanup', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({target})
+    });
+    const data = await res.json();
+    toast(data.message);
+    smmLoadStorage();
+  } catch (err) {
+    toast('Ошибка: ' + err.message);
+  }
+}
+
+// ─── Dashboard SMM Widget ───
+async function loadDashboardSMM() {
+  const el = document.getElementById('dashboard-smm-widget');
+  if (!el) return;
+  try {
+    // Get queue stats
+    const qRes = await fetch('/api/smm/queue?profile_id=' + (localStorage.getItem('smm_active_profile') || 'ai-insider-blog'));
+    const qData = await qRes.json();
+    const items = qData.items || [];
+    const drafts = items.filter(i => i.status === 'draft').length;
+    const approved = items.filter(i => i.status === 'approved').length;
+    const scheduled = items.filter(i => i.status === 'approved' && i.scheduled_time).length;
+    const published = items.filter(i => i.status === 'published').length;
+    const partial = items.filter(i => i.status === 'partial').length;
+
+    // Find next scheduled
+    const nextSched = items
+      .filter(i => i.status === 'approved' && i.scheduled_time && i.scheduled_time > new Date().toISOString())
+      .sort((a, b) => a.scheduled_time.localeCompare(b.scheduled_time))[0];
+    const nextStr = nextSched
+      ? `⏰ ${new Date(nextSched.scheduled_time).toLocaleString('ru-RU', {day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}`
+      : 'Нет запланированных';
+
+    // Token health
+    const hRes = await fetch('/api/smm/token-health?profile_id=' + (localStorage.getItem('smm_active_profile') || 'ai-insider-blog'));
+    const hData = await hRes.json();
+    const health = hData.health || {};
+    const expiring = Object.entries(health).filter(([p, h]) => h.status === 'expiring' || h.status === 'expired');
+    const tokenWarn = expiring.length
+      ? `<span style="color:var(--yellow);">⚠️ ${expiring.map(([p]) => SMM_PLATFORM_ICONS[p]||p).join('')} истекают</span>`
+      : `<span style="color:var(--green);">🔑 Все токены ОК</span>`;
+
+    el.innerHTML = `
+      <div style="display:flex;gap:4px;align-items:center;">
+        <span style="color:var(--gray2);">📋</span>
+        <span style="color:var(--green);">${published} опубл.</span>
+        ${partial ? `<span style="color:var(--orange);">${partial} частично</span>` : ''}
+        <span style="color:var(--yellow);">${approved} одобр.</span>
+        <span style="color:var(--gray2);">${drafts} чернов.</span>
+      </div>
+      <div style="color:var(--accent);">${nextStr}</div>
+      <div>${tokenWarn}</div>
+      <div id="dashboard-smm-analytics" style="color:var(--gray2);font-size:11px;"></div>
+    `;
+    // Load analytics summary
+    try {
+      const aRes = await fetch('/api/smm/analytics?profile_id=' + (localStorage.getItem('smm_active_profile') || 'ai-insider-blog'));
+      const aData = await aRes.json();
+      const aEl = document.getElementById('dashboard-smm-analytics');
+      if (aEl && aData.ok && aData.total_likes > 0) {
+        aEl.innerHTML = `📊 ❤️${aData.total_likes} 💬${aData.total_comments} 👁${aData.total_views}`;
+      }
+    } catch(e) {}
+  } catch (err) {
+    el.innerHTML = '<span style="color:var(--gray2);">SMM не загружен</span>';
+  }
+}
+
 // Initial load
 refresh();
 loadStorage();
 loadRagStatus();
 checkHealth();
+loadDashboardSMM();
 setInterval(refresh, 5000);
 setInterval(loadStorage, 15000);
+setInterval(loadDashboardSMM, 30000);
 setInterval(loadRagStatus, 10000);
 setInterval(checkHealth, 30000);
 connectWS();

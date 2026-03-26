@@ -29,6 +29,7 @@ LOG_DIR = Path("/tmp/ai-panel-logs")
 LOG_DIR.mkdir(exist_ok=True)
 
 
+
 # ─── Module Loading ───────────────────────────────────────────────
 
 def load_modules() -> list[dict]:
@@ -215,13 +216,15 @@ def start_module(module: dict) -> dict:
         else:
             full_cmd = f"cd {work_dir} && {cmd}"
 
+        log_fh = open(log_file, "w")
         subprocess.Popen(
             ["bash", "-c", full_cmd],
-            stdout=open(log_file, "w"),
+            stdout=log_fh,
             stderr=subprocess.STDOUT,
             start_new_session=True,
             cwd=work_dir,
         )
+        log_fh.close()
         return {"ok": True, "message": f"{module['name']} запускается...", "log": str(log_file)}
 
     return {"ok": False, "message": "Unknown module type"}
@@ -433,6 +436,88 @@ async def api_telegram_config(req: Request):
     return {"ok": True, "message": "Настройки сохранены"}
 
 
+DEFAULT_PERSONA_IDS = {
+    "philosopher", "gopnik", "it_demon", "granny", "noir", "pirate",
+    "cat", "conspiracy", "shakespeare", "zombie", "corporate",
+    "capybara", "crypto", "custom",
+}
+
+
+@app.post("/api/telegram/personas")
+async def api_telegram_persona_create(req: Request):
+    """Create a new persona"""
+    try:
+        data = await req.json()
+    except Exception:
+        return {"ok": False, "error": "Bad JSON"}
+    name = (data.get("name") or "").strip()
+    icon = (data.get("icon") or "🤖").strip()
+    prompt = (data.get("system_prompt") or "").strip()
+    if not name or not prompt:
+        return {"ok": False, "error": "Имя и промпт обязательны"}
+    # Generate ID from name
+    pid = data.get("id") or name.lower().replace(" ", "_")
+    import re
+    pid = re.sub(r'[^a-z0-9_]', '', pid) or f"persona_{int(__import__('time').time())}"
+    config = json.loads(TG_CONFIG.read_text()) if TG_CONFIG.exists() else {}
+    personas = config.get("personas", {})
+    if pid in personas:
+        pid = f"{pid}_{int(__import__('time').time()) % 10000}"
+    personas[pid] = {"name": name, "icon": icon, "system_prompt": prompt}
+    if data.get("voice_reply"):
+        personas[pid]["voice_reply"] = True
+    if data.get("send_capybara"):
+        personas[pid]["send_capybara"] = True
+    config["personas"] = personas
+    TG_CONFIG.write_text(json.dumps(config, ensure_ascii=False, indent=2))
+    return {"ok": True, "id": pid, "message": f"Персона «{name}» создана"}
+
+
+@app.put("/api/telegram/personas/{persona_id}")
+async def api_telegram_persona_update(persona_id: str, req: Request):
+    """Update an existing persona"""
+    try:
+        data = await req.json()
+    except Exception:
+        return {"ok": False, "error": "Bad JSON"}
+    config = json.loads(TG_CONFIG.read_text()) if TG_CONFIG.exists() else {}
+    personas = config.get("personas", {})
+    if persona_id not in personas:
+        return {"ok": False, "error": "Персона не найдена"}
+    p = personas[persona_id]
+    if "name" in data and data["name"].strip():
+        p["name"] = data["name"].strip()
+    if "icon" in data and data["icon"].strip():
+        p["icon"] = data["icon"].strip()
+    if "system_prompt" in data:
+        p["system_prompt"] = data["system_prompt"].strip()
+    if "voice_reply" in data:
+        p["voice_reply"] = bool(data["voice_reply"])
+    if "send_capybara" in data:
+        p["send_capybara"] = bool(data["send_capybara"])
+    config["personas"] = personas
+    TG_CONFIG.write_text(json.dumps(config, ensure_ascii=False, indent=2))
+    return {"ok": True, "message": f"Персона «{p['name']}» обновлена"}
+
+
+@app.delete("/api/telegram/personas/{persona_id}")
+async def api_telegram_persona_delete(persona_id: str):
+    """Delete a custom persona (defaults cannot be deleted)"""
+    if persona_id in DEFAULT_PERSONA_IDS:
+        return {"ok": False, "error": "Дефолтные персоны нельзя удалить, только редактировать"}
+    config = json.loads(TG_CONFIG.read_text()) if TG_CONFIG.exists() else {}
+    personas = config.get("personas", {})
+    if persona_id not in personas:
+        return {"ok": False, "error": "Персона не найдена"}
+    name = personas[persona_id].get("name", persona_id)
+    del personas[persona_id]
+    if config.get("active_persona") == persona_id:
+        config["active_persona"] = "philosopher"
+    config["personas"] = personas
+    TG_CONFIG.write_text(json.dumps(config, ensure_ascii=False, indent=2))
+    return {"ok": True, "message": f"Персона «{name}» удалена"}
+
+
 @app.post("/api/telegram/start")
 async def api_telegram_start():
     try:
@@ -447,12 +532,14 @@ async def api_telegram_start():
     TG_CONFIG.write_text(json.dumps(config, ensure_ascii=False, indent=2))
     # Start bot
     venv = "/home/definitelynotme/Desktop/ai-panel/venv"
+    tg_log_fh = open(TG_BOT_LOG, "w")
     subprocess.Popen(
         ["bash", "-c", f"source {venv}/bin/activate && python3 -u {TG_BOT_SCRIPT}"],
-        stdout=open(TG_BOT_LOG, "w"),
+        stdout=tg_log_fh,
         stderr=subprocess.STDOUT,
         start_new_session=True,
     )
+    tg_log_fh.close()
     return {"ok": True, "message": "Telegram бот запущен"}
 
 
@@ -463,6 +550,17 @@ async def api_telegram_stop():
     TG_CONFIG.write_text(json.dumps(config, ensure_ascii=False, indent=2))
     subprocess.run(["pkill", "-f", "telegram_bot.py"], capture_output=True, timeout=5)
     return {"ok": True, "message": "Telegram бот остановлен"}
+
+
+@app.delete("/api/telegram/sessions")
+async def api_telegram_delete_all_sessions():
+    """Delete all session files"""
+    count = 0
+    if TG_SESSIONS_DIR.exists():
+        for f in TG_SESSIONS_DIR.glob("session_*.json"):
+            f.unlink()
+            count += 1
+    return {"ok": True, "message": f"Удалено сессий: {count}"}
 
 
 @app.delete("/api/telegram/messages")
@@ -608,14 +706,21 @@ AVAILABLE_TOOLS = {
 }
 
 AVAILABLE_MODELS = {
-    "nemotron-3-nano:30b": "Nemotron 3 Nano 30B (NVIDIA, быстрейший, 1M контекст)",
-    "qwen3.5:35b-a3b": "Qwen 3.5 35B-A3B (быстрый)",
+    "nemotron-3-nano:30b": "Nemotron 3 Nano 30B (NVIDIA, 1M контекст)",
+    "qwen3.5:35b-a3b": "Qwen 3.5 35B-A3B (112 tok/s, MoE)",
+    "qwen3.5:27b": "Qwen 3.5 27B (основная рабочая)",
+    "qwen3.5:9b": "Qwen 3.5 9B (лёгкий, 6.6GB)",
+    "gemma3:27b": "Gemma 3 27B (140 языков, multimodal)",
     "deepseek-r1:32b": "DeepSeek-R1 32B (рассуждения)",
-    "qwen2.5-coder:32b": "Qwen 2.5 Coder 32B (код)",
-    "qwen3.5:27b": "Qwen 3.5 27B (vision, анализ)",
+    "deepseek-r1:14b": "DeepSeek-R1 14B (reasoning, лёгкий)",
+    "phi4-reasoning:14b": "Phi-4 Reasoning 14B (математика/логика)",
+    "qwen2.5-coder:32b": "Qwen 2.5 Coder 32B (код, 92.7% HumanEval)",
+    "qwen3-vl:8b": "Qwen3-VL 8B (vision, видео, GUI)",
+    "minicpm-v:8b": "MiniCPM-V 8B (vision, компактный)",
     "mistral-small:24b": "Mistral Small 24B (универсал)",
-    "llama3.1:70b": "Llama 3.1 70B (макс. качество)",
+    "phi4:14b": "Phi 4 14B (компактный)",
     "command-r:35b": "Command R 35B (RAG)",
+    "llama3.1:70b": "Llama 3.1 70B (макс. качество, CPU offload)",
 }
 
 
@@ -1413,6 +1518,12 @@ async def api_rag_chat(req: Request):
     return {"ok": True, "answer": answer, "sources": sources}
 
 
+
+# ─── SMM AI Department (modularized) ─────────────────────────────
+from smm import register_smm_routes
+register_smm_routes(app, load_modules, start_module, stop_module)
+
+
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
@@ -1439,6 +1550,13 @@ async def websocket_endpoint(websocket: WebSocket):
             await asyncio.sleep(3)
     except WebSocketDisconnect:
         pass
+
+
+@app.post("/api/restart")
+async def api_restart():
+    """Graceful restart: re-exec the server process."""
+    import sys
+    os.execv(sys.executable, [sys.executable] + sys.argv)
 
 
 if __name__ == "__main__":
