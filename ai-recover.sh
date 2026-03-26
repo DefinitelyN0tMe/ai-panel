@@ -1,28 +1,28 @@
 #!/bin/bash
-# AI Recovery Script — восстановление базовых сервисов
-echo "🔄 AI Recovery — проверяю и восстанавливаю сервисы..."
+# NeuralForge Recovery Script — restart base services
+echo "🔄 NeuralForge Recovery — checking and restarting services..."
 
 # Ollama
 if ! systemctl is-active --quiet ollama; then
-    echo "  ⚠️ Ollama не работает, перезапускаю..."
+    echo "  ⚠️ Ollama is down, restarting..."
     sudo systemctl restart ollama
     sleep 3
 fi
 echo "  ✅ Ollama: $(systemctl is-active ollama)"
 
-# AI Control Panel
+# NeuralForge Panel
 if ! systemctl is-active --quiet ai-panel; then
-    echo "  ⚠️ AI Panel не работает, перезапускаю..."
+    echo "  ⚠️ Panel is down, restarting..."
     sudo systemctl restart ai-panel
     sleep 3
 fi
-echo "  ✅ AI Panel: $(systemctl is-active ai-panel)"
+echo "  ✅ Panel: $(systemctl is-active ai-panel)"
 
 # Docker containers
 for container in open-webui perplexica searxng qdrant; do
     status=$(sudo docker inspect -f '{{.State.Running}}' $container 2>/dev/null)
     if [ "$status" != "true" ]; then
-        echo "  ⚠️ $container не работает, запускаю..."
+        echo "  ⚠️ $container is down, starting..."
         sudo docker start $container
         sleep 2
     fi
@@ -33,7 +33,7 @@ done
 sudo chmod 666 /var/run/docker.sock 2>/dev/null
 
 echo ""
-echo "🎯 Все базовые сервисы запущены!"
-echo "   Panel: http://localhost:9000"
-echo "   Chat:  http://localhost:8080"
+echo "🎯 All base services are running!"
+echo "   Panel:  http://localhost:9000"
+echo "   Chat:   http://localhost:8080"
 echo "   Search: http://localhost:3000"
